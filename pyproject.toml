@@ -1,0 +1,25 @@
+[project]
+name = "flightops"
+version = "1.0.0"
+description = "Airline delay & disruption intelligence on US DOT BTS on-time data"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["notebooks", ".venv", "mlruns"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]
+ignore = ["E501", "B008", "B023", "B905", "UP017"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["flightops", "api", "app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+filterwarnings = ["ignore::DeprecationWarning"]

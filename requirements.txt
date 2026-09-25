@@ -1,0 +1,11 @@
+# Full pipeline: ingestion, training, tracking, notebooks
+-r requirements-serve.txt
+requests==2.34.2
+xgboost==3.4.1
+optuna==5.0.0
+shap==0.52.0
+mlflow==3.16.1
+statsmodels==0.15.0
+matplotlib==3.11.2
+jupyter
+nbconvert

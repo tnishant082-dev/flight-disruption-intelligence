@@ -1,0 +1,26 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# data (downloaded or built locally - see scripts/download_data.py and `make pipeline`)
+data/raw/
+data/interim/
+data/warehouse/
+data/powerbi/*.parquet
+
+# experiment tracking (local file store; summaries live in reports/)
+mlruns/
+mlflow.db
+
+.env
+.DS_Store
+tools/
+
+# Power BI local-only files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
