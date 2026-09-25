@@ -12,12 +12,16 @@ Pipeline
 
 from __future__ import annotations
 
-import duckdb
+from typing import TYPE_CHECKING
+
 import numpy as np
 import pandas as pd
 from pandas.tseries.holiday import USFederalHolidayCalendar
 
 from flightops import config
+
+if TYPE_CHECKING:  # duckdb is only needed to build features, not to serve them
+    import duckdb
 
 CAT_FEATURES = ["carrier", "origin", "dest"]
 SCHEDULE_FEATURES = [
@@ -55,6 +59,8 @@ def holiday_table(start: str = "2024-01-01", end: str = "2027-12-31") -> pd.Data
 
 def build(con: duckdb.DuckDBPyConnection | None = None) -> None:
     own = con is None
+    import duckdb
+
     con = con or duckdb.connect(str(config.DB_PATH))
     con.execute("SET memory_limit='2GB'; SET threads=4;")
     con.execute((config.SQL_DIR / "features" / "01_flight_features.sql").read_text())
@@ -177,6 +183,8 @@ def load_split(split: str, sample: int | None = None, where: str = "", columns: 
                seed: int = config.SEED) -> pd.DataFrame:
     cols = columns or (["flight_id", "flight_date", "split"] + DAY_OF_OPS_FEATURES
                        + ["completed", "cancelled", "arr_del15", "arr_delay_min"])
+    import duckdb
+
     con = duckdb.connect(str(config.DB_PATH), read_only=True)
     con.execute("SET memory_limit='2GB'; SET threads=4;")
     cond = f"split = '{split}'" + (f" AND {where}" if where else "")

@@ -166,8 +166,17 @@ flowchart LR
 
 ## Run it
 
+App only (no database, no API: it runs on the marts, metrics and model files committed here):
+
 ```bash
-pip install -r requirements.txt -r requirements-dev.txt
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+Full project:
+
+```bash
+pip install -r requirements-pipeline.txt -r requirements-dev.txt
 export PYTHONPATH=src:.
 
 # Try the API and app right away (trained models and marts are in the repo)
@@ -187,6 +196,20 @@ Docker: `docker compose up --build` starts the API (8000) and the app (8501).
 curl -X POST localhost:8000/predict/delay -H 'content-type: application/json' \
   -d '{"carrier":"AA","origin":"ORD","dest":"LGA","flight_date":"2026-07-17","crs_dep_time":1730,"flight_number":"1234"}'
 ```
+
+### Deploy the app on Streamlit Community Cloud
+
+The app runs from a fresh clone without the local DuckDB warehouse. When `API_URL` is not set (or the API can't be reached) it loads the models in-process.
+
+| Setting | Value |
+|---|---|
+| Repository / branch | `tnishant082-dev/flight-disruption-intelligence` / `main` |
+| Main file path | `app/streamlit_app.py` |
+| Python version | 3.12 |
+| Dependencies | `requirements.txt` (app runtime only) and `packages.txt` (`libgomp1` for LightGBM) |
+| Secrets | none |
+
+Requirements are split by use: `requirements.txt` for the app, `requirements-serve.txt` adds the API, `requirements-pipeline.txt` adds ingestion, training and notebooks, and `requirements-dev.txt` adds tests and linting.
 
 ## Repository layout
 

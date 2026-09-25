@@ -1,14 +1,7 @@
-# Runtime for the API and the Streamlit app (also used by CI and Docker)
+# API + app runtime (also used by CI and Docker)
+-r requirements.txt
 duckdb==1.5.5
-pandas==3.0.6
-numpy==2.5.3
-pyarrow==25.0.1
-scikit-learn==1.9.1
-lightgbm==4.7.0
-joblib==1.6.0
 fastapi==0.141.1
 uvicorn[standard]==0.54.0
 pydantic==2.13.5
 httpx==0.28.1
-streamlit==1.64.0
-plotly==7.1.0

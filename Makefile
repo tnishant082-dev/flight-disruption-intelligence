@@ -4,7 +4,7 @@ export PYTHONPATH := src:.
 .PHONY: setup data pipeline sql quality features train powerbi api app test lint mlflow-ui clean
 
 setup:            ## install everything
-	$(PY) -m pip install -r requirements.txt -r requirements-dev.txt
+	$(PY) -m pip install -r requirements-pipeline.txt -r requirements-dev.txt
 
 data:             ## download 12 months of BTS data + reference files (~360 MB)
 	$(PY) scripts/download_data.py

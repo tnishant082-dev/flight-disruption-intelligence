@@ -1,11 +1,10 @@
-# Full pipeline: ingestion, training, tracking, notebooks
--r requirements-serve.txt
-requests==2.34.2
-xgboost==3.4.1
-optuna==5.0.0
-shap==0.52.0
-mlflow==3.16.1
-statsmodels==0.15.0
-matplotlib==3.11.2
-jupyter
-nbconvert
+# Streamlit app runtime (Streamlit Community Cloud installs this file).
+# Runs from the committed marts, metrics and model files; no warehouse or API needed.
+streamlit==1.64.0
+plotly==7.1.0
+pandas==3.0.6
+numpy==2.5.3
+pyarrow==25.0.1
+scikit-learn==1.9.1
+lightgbm==4.7.0
+joblib==1.6.0
