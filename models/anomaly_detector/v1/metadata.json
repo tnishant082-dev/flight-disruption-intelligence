@@ -1,0 +1,173 @@
+{
+  "model": "anomaly_detector",
+  "version": "v1",
+  "trained_at_utc": "2026-09-25 10:52:09",
+  "code_version": "uncommitted",
+  "train_window": "2025-08-01..2026-03-31",
+  "valid_window": "2026-04-01..2026-05-31",
+  "test_window": "2026-06-01..2026-07-31",
+  "task": "disruption-day detection",
+  "method": "STL robust residual z-score + Isolation Forest",
+  "test_metrics": {
+    "network_days_flagged": 25,
+    "network_days": 365,
+    "airport_days": 10950,
+    "airport_days_flagged": 219,
+    "flagged_airport_days_delay_rate_mean": 0.6797394063926941,
+    "normal_airport_days_delay_rate_mean": 0.22693925414879734,
+    "flagged_airport_days_cancel_rate_mean": 0.28393068493150686,
+    "normal_airport_days_cancel_rate_mean": 0.01319865902525394,
+    "top_network_anomalies": [
+      {
+        "date": "2026-01-25",
+        "driver": "delays + cancellations",
+        "arr_delay_rate": 0.4321,
+        "cancellation_rate": 0.4648
+      },
+      {
+        "date": "2026-01-26",
+        "driver": "delays + cancellations",
+        "arr_delay_rate": 0.415,
+        "cancellation_rate": 0.2712
+      },
+      {
+        "date": "2026-01-24",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.2393,
+        "cancellation_rate": 0.2106
+      },
+      {
+        "date": "2026-02-23",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.1734,
+        "cancellation_rate": 0.1968
+      },
+      {
+        "date": "2026-03-16",
+        "driver": "delays",
+        "arr_delay_rate": 0.5543,
+        "cancellation_rate": 0.1957
+      },
+      {
+        "date": "2026-01-27",
+        "driver": "delays + cancellations",
+        "arr_delay_rate": 0.3201,
+        "cancellation_rate": 0.1386
+      },
+      {
+        "date": "2025-11-09",
+        "driver": "delays",
+        "arr_delay_rate": 0.4514,
+        "cancellation_rate": 0.1213
+      },
+      {
+        "date": "2026-02-22",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.3256,
+        "cancellation_rate": 0.1182
+      },
+      {
+        "date": "2025-11-10",
+        "driver": "delays",
+        "arr_delay_rate": 0.3992,
+        "cancellation_rate": 0.0978
+      },
+      {
+        "date": "2026-07-18",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.3427,
+        "cancellation_rate": 0.0932
+      },
+      {
+        "date": "2026-02-24",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.202,
+        "cancellation_rate": 0.084
+      },
+      {
+        "date": "2025-11-29",
+        "driver": "delays + cancellations",
+        "arr_delay_rate": 0.3306,
+        "cancellation_rate": 0.0838
+      },
+      {
+        "date": "2025-11-08",
+        "driver": "delays",
+        "arr_delay_rate": 0.3325,
+        "cancellation_rate": 0.0749
+      },
+      {
+        "date": "2026-03-07",
+        "driver": "delays",
+        "arr_delay_rate": 0.4125,
+        "cancellation_rate": 0.0602
+      },
+      {
+        "date": "2026-03-17",
+        "driver": "delays",
+        "arr_delay_rate": 0.388,
+        "cancellation_rate": 0.0564
+      },
+      {
+        "date": "2026-03-06",
+        "driver": "delays",
+        "arr_delay_rate": 0.3781,
+        "cancellation_rate": 0.0546
+      },
+      {
+        "date": "2026-05-19",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.2845,
+        "cancellation_rate": 0.0495
+      },
+      {
+        "date": "2026-01-28",
+        "driver": "delays",
+        "arr_delay_rate": 0.2279,
+        "cancellation_rate": 0.049
+      },
+      {
+        "date": "2025-10-30",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.2661,
+        "cancellation_rate": 0.0421
+      },
+      {
+        "date": "2025-11-20",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.2172,
+        "cancellation_rate": 0.0391
+      },
+      {
+        "date": "2026-05-10",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.2046,
+        "cancellation_rate": 0.0295
+      },
+      {
+        "date": "2025-12-19",
+        "driver": "delays",
+        "arr_delay_rate": 0.406,
+        "cancellation_rate": 0.0276
+      },
+      {
+        "date": "2026-06-02",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.1671,
+        "cancellation_rate": 0.0143
+      },
+      {
+        "date": "2025-10-13",
+        "driver": "cancellations",
+        "arr_delay_rate": 0.2907,
+        "cancellation_rate": 0.0135
+      },
+      {
+        "date": "2026-01-14",
+        "driver": "delays",
+        "arr_delay_rate": 0.1755,
+        "cancellation_rate": 0.0101
+      }
+    ]
+  }
+}

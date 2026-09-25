@@ -1,0 +1,83 @@
+{
+  "model": "forecaster",
+  "version": "v1",
+  "trained_at_utc": "2026-09-25 10:52:07",
+  "code_version": "uncommitted",
+  "train_window": "2025-08-01..2026-03-31",
+  "valid_window": "2026-04-01..2026-05-31",
+  "test_window": "2026-06-01..2026-07-31",
+  "task": "direct 1-7 day ahead daily forecast (departures, arrival-delay rate)",
+  "airports": [
+    "ATL",
+    "CLT",
+    "DEN",
+    "DFW",
+    "LAS",
+    "LAX",
+    "MCO",
+    "ORD",
+    "PHX",
+    "SEA"
+  ],
+  "backtest": "8 rolling origins, weekly step, 7-day horizon, expanding training window (last 8 weeks of data)",
+  "params": {
+    "objective": "l2",
+    "learning_rate": 0.05,
+    "num_leaves": 15,
+    "min_child_samples": 10,
+    "feature_fraction": 0.9,
+    "verbosity": -1,
+    "seed": 42,
+    "num_threads": 4
+  },
+  "num_boost_round": 300,
+  "features": [
+    "airport_idx",
+    "dow",
+    "days_to_holiday",
+    "lag7",
+    "lag14",
+    "lag21",
+    "lag28",
+    "roll7_lag7",
+    "roll28_lag7",
+    "std28_lag7"
+  ],
+  "test_metrics": {
+    "scheduled_departures": {
+      "lightgbm": {
+        "mae": 17.29834309665681,
+        "rmse": 38.58185506211573,
+        "mape_pct": 2.6605202886992423
+      },
+      "seasonal_naive": {
+        "mae": 10.8125,
+        "rmse": 30.304967768149357,
+        "mape_pct": 1.776947298783646
+      },
+      "mean_4wk_same_weekday": {
+        "mae": 15.559821428571428,
+        "rmse": 26.86044456338832,
+        "mape_pct": 2.448959312124627
+      }
+    },
+    "arr_delay_rate": {
+      "lightgbm": {
+        "mae": 0.0931773703147122,
+        "rmse": 0.12665003343476827,
+        "mape_pct": 29.661686300604096
+      },
+      "seasonal_naive": {
+        "mae": 0.10299225,
+        "rmse": 0.14179897938757224,
+        "mape_pct": 35.64818165929037
+      },
+      "mean_4wk_same_weekday": {
+        "mae": 0.08595320089285714,
+        "rmse": 0.11828046431740377,
+        "mape_pct": 28.52804742221701
+      }
+    }
+  },
+  "runtime_seconds": 2.5
+}

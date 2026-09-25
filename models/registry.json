@@ -1,0 +1,38 @@
+{
+  "delay_classifier": {
+    "version": "v1",
+    "path": "models/delay_classifier/v1",
+    "trained_at_utc": "2026-09-25 10:48:48",
+    "code_version": "uncommitted"
+  },
+  "delay_regression": {
+    "version": "v1",
+    "path": "models/delay_regression/v1",
+    "trained_at_utc": "2026-09-25 10:49:04",
+    "code_version": "uncommitted"
+  },
+  "cancellation_model": {
+    "version": "v1",
+    "path": "models/cancellation_model/v1",
+    "trained_at_utc": "2026-09-25 10:50:51",
+    "code_version": "uncommitted"
+  },
+  "forecaster": {
+    "version": "v1",
+    "path": "models/forecaster/v1",
+    "trained_at_utc": "2026-09-25 10:52:07",
+    "code_version": "uncommitted"
+  },
+  "segmentation": {
+    "version": "v1",
+    "path": "models/segmentation/v1",
+    "trained_at_utc": "2026-09-25 10:51:36",
+    "code_version": "uncommitted"
+  },
+  "anomaly_detector": {
+    "version": "v1",
+    "path": "models/anomaly_detector/v1",
+    "trained_at_utc": "2026-09-25 10:52:09",
+    "code_version": "uncommitted"
+  }
+}

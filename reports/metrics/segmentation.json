@@ -1,0 +1,70 @@
+{
+  "model": "segmentation",
+  "version": "v1",
+  "trained_at_utc": "2026-09-25 10:51:36",
+  "code_version": "uncommitted",
+  "train_window": "2025-08-01..2026-03-31",
+  "valid_window": "2026-04-01..2026-05-31",
+  "test_window": "2026-06-01..2026-07-31",
+  "task": "KMeans segmentation of airports/routes",
+  "airport_features": [
+    "log_departures",
+    "destinations",
+    "arr_delay_rate",
+    "cancellation_rate",
+    "avg_taxi_out_min",
+    "avg_distance_mi",
+    "evening_share",
+    "weather_cause_share",
+    "nas_cause_share",
+    "late_aircraft_cause_share",
+    "dep_delay_std_min"
+  ],
+  "route_features": [
+    "log_flights",
+    "distance_mi",
+    "carriers",
+    "on_time_pct",
+    "avg_arr_delay_min",
+    "p90_arr_delay_min",
+    "cancellation_rate_pct"
+  ],
+  "test_metrics": {
+    "airports": {
+      "k": 6,
+      "silhouette_by_k": {
+        "4": 0.17255495273423488,
+        "5": 0.17619529537751236,
+        "6": 0.1946253757062584,
+        "7": 0.18585238767567575
+      },
+      "silhouette": 0.1946253757062584,
+      "n_items": 172,
+      "segments": {
+        "Regional - volatile delays, delay-prone": 27,
+        "Mid-size - ATC/NAS-constrained, low weather exposure": 44,
+        "Regional - short-haul mix, few NAS delays": 35,
+        "Major hub - evening-heavy bank, long taxi-out / congested": 29,
+        "Mid-size - stable delays, quick turn": 14,
+        "Regional - few knock-on delays, morning-heavy bank": 23
+      }
+    },
+    "routes": {
+      "k": 4,
+      "silhouette_by_k": {
+        "4": 0.22359918443333757,
+        "5": 0.2014395602580834,
+        "6": 0.20603639393356074,
+        "7": 0.20765213121658802
+      },
+      "silhouette": 0.22359918443333757,
+      "n_items": 4457,
+      "segments": {
+        "Trunk route - multi-carrier, unreliable": 1071,
+        "Thin route - long delay tail, high average delay": 886,
+        "Thin route - reliable, short delay tail": 1843,
+        "Thin route - long-haul, rarely cancels": 657
+      }
+    }
+  }
+}
