@@ -49,8 +49,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(score_risk_bands.mean_predicted)",
-              "nativeQueryRef": "Sum of mean_predicted"
+              "queryRef": "Avg(score_risk_bands.mean_predicted)",
+              "nativeQueryRef": "Average of mean_predicted"
             },
             {
               "field": {
@@ -68,8 +68,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(score_risk_bands.observed_rate)",
-              "nativeQueryRef": "Sum of observed_rate"
+              "queryRef": "Avg(score_risk_bands.observed_rate)",
+              "nativeQueryRef": "Average of observed_rate"
             }
           ]
         }

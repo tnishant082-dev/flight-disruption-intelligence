@@ -1,5 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/1.2.0/schema.json",
+  "layoutOptimization": "None",
   "themeCollection": {
     "customTheme": {
       "name": "fluent-light-flightops.json",

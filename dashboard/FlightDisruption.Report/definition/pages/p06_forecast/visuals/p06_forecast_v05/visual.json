@@ -13,7 +13,7 @@
     "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Rows": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -28,67 +28,48 @@
               },
               "queryRef": "forecast_backtest.target",
               "nativeQueryRef": "target"
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "forecast_backtest"
-                        }
-                      },
-                      "Property": "lightgbm"
-                    }
-                  },
-                  "Function": 1
-                }
-              },
-              "queryRef": "Sum(forecast_backtest.lightgbm)",
-              "nativeQueryRef": "Sum of lightgbm"
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "forecast_backtest"
-                        }
-                      },
-                      "Property": "seasonal_naive"
+                    "SourceRef": {
+                      "Entity": "_Measures"
                     }
                   },
-                  "Function": 1
+                  "Property": "Backtest MAE LightGBM"
                 }
               },
-              "queryRef": "Sum(forecast_backtest.seasonal_naive)",
-              "nativeQueryRef": "Sum of seasonal_naive"
+              "queryRef": "_Measures.Backtest MAE LightGBM",
+              "nativeQueryRef": "Backtest MAE LightGBM"
             },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "forecast_backtest"
-                        }
-                      },
-                      "Property": "mean_4wk_same_weekday"
+                    "SourceRef": {
+                      "Entity": "_Measures"
                     }
                   },
-                  "Function": 1
+                  "Property": "Backtest MAE Seasonal Naive"
                 }
               },
-              "queryRef": "Sum(forecast_backtest.mean_4wk_same_weekday)",
-              "nativeQueryRef": "Sum of mean_4wk_same_weekday"
+              "queryRef": "_Measures.Backtest MAE Seasonal Naive",
+              "nativeQueryRef": "Backtest MAE Seasonal Naive"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Backtest MAE 4-Week Mean"
+                }
+              },
+              "queryRef": "_Measures.Backtest MAE 4-Week Mean",
+              "nativeQueryRef": "Backtest MAE 4-Week Mean"
             }
           ]
         }

@@ -49,8 +49,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(score_hour.mean_delay_prob)",
-              "nativeQueryRef": "Sum of mean_delay_prob"
+              "queryRef": "Avg(score_hour.mean_delay_prob)",
+              "nativeQueryRef": "Average of mean_delay_prob"
             },
             {
               "field": {
@@ -68,8 +68,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(score_hour.observed_delay_rate)",
-              "nativeQueryRef": "Sum of observed_delay_rate"
+              "queryRef": "Avg(score_hour.observed_delay_rate)",
+              "nativeQueryRef": "Average of observed_delay_rate"
             }
           ]
         }

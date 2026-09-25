@@ -13,7 +13,7 @@
     "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Rows": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -28,11 +28,7 @@
               },
               "queryRef": "score_route_risk.route",
               "nativeQueryRef": "route"
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
+            },
             {
               "field": {
                 "Aggregation": {
@@ -46,7 +42,7 @@
                       "Property": "completed_flights"
                     }
                   },
-                  "Function": 1
+                  "Function": 0
                 }
               },
               "queryRef": "Sum(score_route_risk.completed_flights)",
@@ -68,8 +64,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(score_route_risk.mean_delay_prob)",
-              "nativeQueryRef": "Sum of mean_delay_prob"
+              "queryRef": "Avg(score_route_risk.mean_delay_prob)",
+              "nativeQueryRef": "Average of mean_delay_prob"
             },
             {
               "field": {
@@ -87,8 +83,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(score_route_risk.observed_delay_rate)",
-              "nativeQueryRef": "Sum of observed_delay_rate"
+              "queryRef": "Avg(score_route_risk.observed_delay_rate)",
+              "nativeQueryRef": "Average of observed_delay_rate"
             },
             {
               "field": {
@@ -106,8 +102,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(score_route_risk.mean_p90_min)",
-              "nativeQueryRef": "Sum of mean_p90_min"
+              "queryRef": "Avg(score_route_risk.mean_p90_min)",
+              "nativeQueryRef": "Average of mean_p90_min"
             }
           ]
         }

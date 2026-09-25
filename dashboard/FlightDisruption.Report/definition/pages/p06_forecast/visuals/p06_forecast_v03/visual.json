@@ -13,7 +13,7 @@
     "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Rows": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -28,11 +28,7 @@
               },
               "queryRef": "anomalies_network.flight_date",
               "nativeQueryRef": "flight_date"
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
+            },
             {
               "field": {
                 "Aggregation": {
@@ -49,8 +45,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(anomalies_network.arr_delay_rate)",
-              "nativeQueryRef": "Sum of arr_delay_rate"
+              "queryRef": "Avg(anomalies_network.arr_delay_rate)",
+              "nativeQueryRef": "Average of arr_delay_rate"
             },
             {
               "field": {
@@ -68,30 +64,48 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(anomalies_network.cancellation_rate)",
-              "nativeQueryRef": "Sum of cancellation_rate"
+              "queryRef": "Avg(anomalies_network.cancellation_rate)",
+              "nativeQueryRef": "Average of cancellation_rate"
             },
             {
               "field": {
-                "Aggregation": {
+                "Column": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "anomalies_network"
-                        }
-                      },
-                      "Property": "anomaly_driver"
+                    "SourceRef": {
+                      "Entity": "anomalies_network"
                     }
                   },
-                  "Function": 1
+                  "Property": "anomaly_driver"
                 }
               },
-              "queryRef": "Sum(anomalies_network.anomaly_driver)",
-              "nativeQueryRef": "Sum of anomaly_driver"
+              "queryRef": "anomalies_network.anomaly_driver",
+              "nativeQueryRef": "anomaly_driver"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "anomalies_network"
+                      }
+                    },
+                    "Property": "cancellation_rate"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
       }
     },
     "visualContainerObjects": {
@@ -237,5 +251,62 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "flaggedDaysOnly",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "anomalies_network"
+              }
+            },
+            "Property": "is_anomaly"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "anomalies_network",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "a"
+                          }
+                        },
+                        "Property": "is_anomaly"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "1L"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

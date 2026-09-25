@@ -1,7 +1,7 @@
 """Export the star schema + model score tables consumed by the Power BI project and the app.
 
 Committed (small): dimensions, model score aggregates, forecast / anomaly / segment tables,
-fact_flights_sample.csv (50k-row random sample).
+fact_flights_sample.csv and fact_flight_scores_sample.csv (50k-row random samples).
 Built locally only (large, gitignored): fact_flights.parquet (every flight in the window) and
 fact_flight_scores.parquet (every test-window flight with model scores).
 """
@@ -82,6 +82,9 @@ def run() -> None:
                     carrier AS carrier_code, origin AS origin_airport, route, delay_prob, delay_pred,
                     delay_p50, delay_p90, cancel_prob, arr_del15, cancelled FROM scores)
                     TO '{pb}/fact_flight_scores.parquet' (FORMAT parquet, COMPRESSION zstd)""")
+    con.execute(f"""COPY (SELECT * FROM read_parquet('{pb}/fact_flight_scores.parquet')
+                    USING SAMPLE reservoir(50000 ROWS) REPEATABLE (42) ORDER BY date_key)
+                    TO '{pb}/fact_flight_scores_sample.csv' (HEADER)""")
     con.execute(f"""COPY (
         SELECT CASE WHEN delay_prob < 0.1 THEN '0-10%' WHEN delay_prob < 0.2 THEN '10-20%'
                     WHEN delay_prob < 0.3 THEN '20-30%' WHEN delay_prob < 0.4 THEN '30-40%'

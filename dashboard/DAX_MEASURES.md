@@ -1,6 +1,6 @@
 # DAX measures
 
-All measures live in the `_Measures` table of the Power BI model ([`_Measures.tmdl`](./FlightDisruption.SemanticModel/definition/tables/_Measures.tmdl)). Rates follow the SQL marts: on-time % is computed over completed (non-cancelled, non-diverted) flights; cancellation rate over all scheduled flights.
+All 40 measures live in the `_Measures` table ([`_Measures.tmdl`](./FlightDisruption.SemanticModel/definition/tables/_Measures.tmdl)). Rates follow the SQL marts: on-time % is computed over completed (non-cancelled, non-diverted) flights; cancellation rate over all scheduled flights.
 
 ## Volume
 
@@ -296,7 +296,7 @@ Avg Cancel Risk = AVERAGE ( fact_flight_scores[cancel_prob] )
 ```
 Format: `0.00%`
 
-## Disruption
+## Disruption days
 
 ### Anomaly Days
 
@@ -306,6 +306,41 @@ STL-flagged network days
 Anomaly Days = CALCULATE ( COUNTROWS ( anomalies_network ), anomalies_network[is_anomaly] = 1 )
 ```
 Format: `0`
+
+## Forecast
+
+### Backtest MAE LightGBM
+
+Mean absolute backtest error of the LightGBM forecaster. Delay-rate errors are shown in percentage points so the table matches the metrics in the README.
+
+```dax
+Backtest MAE LightGBM =
+AVERAGEX ( forecast_backtest, ABS ( forecast_backtest[lightgbm] - forecast_backtest[y] ) )
+    * IF ( SELECTEDVALUE ( forecast_backtest[target] ) = "arr_delay_rate", 100, 1 )
+```
+Format: `0.00`
+
+### Backtest MAE Seasonal Naive
+
+Same, for the same-weekday-last-week baseline.
+
+```dax
+Backtest MAE Seasonal Naive =
+AVERAGEX ( forecast_backtest, ABS ( forecast_backtest[seasonal_naive] - forecast_backtest[y] ) )
+    * IF ( SELECTEDVALUE ( forecast_backtest[target] ) = "arr_delay_rate", 100, 1 )
+```
+Format: `0.00`
+
+### Backtest MAE 4-Week Mean
+
+Same, for the 4-week same-weekday mean baseline.
+
+```dax
+Backtest MAE 4-Week Mean =
+AVERAGEX ( forecast_backtest, ABS ( forecast_backtest[mean_4wk_same_weekday] - forecast_backtest[y] ) )
+    * IF ( SELECTEDVALUE ( forecast_backtest[target] ) = "arr_delay_rate", 100, 1 )
+```
+Format: `0.00`
 
 ## Relationships
 

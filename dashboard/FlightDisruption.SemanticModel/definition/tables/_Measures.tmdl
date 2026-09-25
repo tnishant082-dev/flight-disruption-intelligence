@@ -201,6 +201,24 @@ table _Measures
 		displayFolder: Disruption
 		lineageTag: 9d861680-078e-5823-afa9-192ffaf4caa5
 
+	/// Mean absolute backtest error; delay-rate errors in percentage points
+	measure 'Backtest MAE LightGBM' = AVERAGEX ( forecast_backtest, ABS ( forecast_backtest[lightgbm] - forecast_backtest[y] ) ) * IF ( SELECTEDVALUE ( forecast_backtest[target] ) = "arr_delay_rate", 100, 1 )
+		formatString: 0.00
+		displayFolder: Forecast
+		lineageTag: f080b7b0-879a-563d-baca-d1b9a5df1d04
+
+	/// Same, for the same-weekday-last-week baseline
+	measure 'Backtest MAE Seasonal Naive' = AVERAGEX ( forecast_backtest, ABS ( forecast_backtest[seasonal_naive] - forecast_backtest[y] ) ) * IF ( SELECTEDVALUE ( forecast_backtest[target] ) = "arr_delay_rate", 100, 1 )
+		formatString: 0.00
+		displayFolder: Forecast
+		lineageTag: 2ada2b84-0fe5-5095-986b-602c2ba96b61
+
+	/// Same, for the 4-week same-weekday mean baseline
+	measure 'Backtest MAE 4-Week Mean' = AVERAGEX ( forecast_backtest, ABS ( forecast_backtest[mean_4wk_same_weekday] - forecast_backtest[y] ) ) * IF ( SELECTEDVALUE ( forecast_backtest[target] ) = "arr_delay_rate", 100, 1 )
+		formatString: 0.00
+		displayFolder: Forecast
+		lineageTag: ea4581f9-c07f-5934-99aa-59573eb3386c
+
 	column Value
 		dataType: string
 		isHidden

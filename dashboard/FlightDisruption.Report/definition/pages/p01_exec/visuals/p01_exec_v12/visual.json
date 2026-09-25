@@ -13,7 +13,7 @@
     "visualType": "donutChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Y": {
           "projections": [
             {
               "field": {

@@ -214,7 +214,15 @@ table fact_flights
 		mode: import
 		source =
 				let
-				    Source = Parquet.Document ( File.Contents ( DataFolder & "\fact_flights.parquet" ) ),
+				    // full table from `make powerbi` if present, otherwise the 50k-row sample committed to the repo
+				    Files = Folder.Files ( DataFolder ),
+				    Full = Table.SelectRows ( Files, each [Name] = "fact_flights.parquet" ),
+				    Sample = Table.SelectRows ( Files, each [Name] = "fact_flights_sample.csv" ),
+				    Source =
+				        if Table.RowCount ( Full ) > 0 then
+				            Parquet.Document ( Full{0}[Content] )
+				        else
+				            Table.PromoteHeaders ( Csv.Document ( Sample{0}[Content], [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ), [PromoteAllScalars = true] ),
 				    Typed = Table.TransformColumnTypes ( Source, {{"flight_id", type text}, {"date_key", Int64.Type}, {"carrier_code", type text}, {"origin_airport", type text}, {"dest_airport", type text}, {"route", type text}, {"flight_number", type text}, {"dep_hour", Int64.Type}, {"crs_dep_hhmm", Int64.Type}, {"distance_mi", type number}, {"crs_elapsed_min", type number}, {"completed", Int64.Type}, {"cancelled", Int64.Type}, {"diverted", Int64.Type}, {"arr_del15", Int64.Type}, {"dep_del15", Int64.Type}, {"arr_delay_min", type number}, {"dep_delay_min", type number}, {"taxi_out_min", type number}, {"cancellation_reason", type text}, {"carrier_delay_min", type number}, {"weather_delay_min", type number}, {"nas_delay_min", type number}, {"security_delay_min", type number}, {"late_aircraft_delay_min", type number}} )
 				in
 				    Typed

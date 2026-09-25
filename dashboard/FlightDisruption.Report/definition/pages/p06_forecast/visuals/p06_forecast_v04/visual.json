@@ -49,8 +49,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(forecast_next7.forecast)",
-              "nativeQueryRef": "Sum of forecast"
+              "queryRef": "Avg(forecast_next7.forecast)",
+              "nativeQueryRef": "Average of forecast"
             }
           ]
         }

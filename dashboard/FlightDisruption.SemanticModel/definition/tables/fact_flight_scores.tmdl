@@ -106,7 +106,15 @@ table fact_flight_scores
 		mode: import
 		source =
 				let
-				    Source = Parquet.Document ( File.Contents ( DataFolder & "\fact_flight_scores.parquet" ) ),
+				    // full table from `make powerbi` if present, otherwise the 50k-row sample committed to the repo
+				    Files = Folder.Files ( DataFolder ),
+				    Full = Table.SelectRows ( Files, each [Name] = "fact_flight_scores.parquet" ),
+				    Sample = Table.SelectRows ( Files, each [Name] = "fact_flight_scores_sample.csv" ),
+				    Source =
+				        if Table.RowCount ( Full ) > 0 then
+				            Parquet.Document ( Full{0}[Content] )
+				        else
+				            Table.PromoteHeaders ( Csv.Document ( Sample{0}[Content], [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ), [PromoteAllScalars = true] ),
 				    Typed = Table.TransformColumnTypes ( Source, {{"flight_id", type text}, {"date_key", Int64.Type}, {"carrier_code", type text}, {"origin_airport", type text}, {"route", type text}, {"delay_prob", type number}, {"delay_pred", Int64.Type}, {"delay_p50", type number}, {"delay_p90", type number}, {"cancel_prob", type number}, {"arr_del15", Int64.Type}, {"cancelled", Int64.Type}} )
 				in
 				    Typed

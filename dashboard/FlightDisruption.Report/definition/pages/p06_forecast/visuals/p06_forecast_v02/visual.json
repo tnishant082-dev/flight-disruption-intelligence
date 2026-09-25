@@ -49,8 +49,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(anomalies_network.arr_delay_rate)",
-              "nativeQueryRef": "Sum of arr_delay_rate"
+              "queryRef": "Avg(anomalies_network.arr_delay_rate)",
+              "nativeQueryRef": "Average of arr_delay_rate"
             },
             {
               "field": {
@@ -68,8 +68,8 @@
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(anomalies_network.cancellation_rate)",
-              "nativeQueryRef": "Sum of cancellation_rate"
+              "queryRef": "Avg(anomalies_network.cancellation_rate)",
+              "nativeQueryRef": "Average of cancellation_rate"
             }
           ]
         }
