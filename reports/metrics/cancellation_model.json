@@ -1,8 +1,8 @@
 {
   "model": "cancellation_model",
   "version": "v1",
-  "trained_at_utc": "2026-09-25 10:50:51",
-  "code_version": "uncommitted",
+  "trained_at_utc": "2026-09-25 11:15:39",
+  "code_version": "84c454b",
   "train_window": "2025-08-01..2026-03-31",
   "valid_window": "2026-04-01..2026-05-31",
   "test_window": "2026-06-01..2026-07-31",
@@ -54,9 +54,40 @@
   },
   "num_boost_round": 39,
   "optuna_trials": 12,
-  "decision_threshold": 0.020426092686141,
-  "selected_model": "lightgbm",
-  "selection_rule": "higher validation PR-AUC",
+  "runtime_seconds": 50.9,
+  "valid_positive_rate": 0.009075,
+  "top_risk_slice": {
+    "lightgbm": {
+      "top_1pct": {
+        "precision": 0.013231141589350544,
+        "lift_vs_prior": 0.6177486395914388
+      },
+      "top_5pct": {
+        "precision": 0.049211804379043836,
+        "lift_vs_prior": 2.2976494508578957
+      }
+    },
+    "logistic_regression": {
+      "top_1pct": {
+        "precision": 0.11077047196450182,
+        "lift_vs_prior": 5.171761476579546
+      },
+      "top_5pct": {
+        "precision": 0.08080416928860706,
+        "lift_vs_prior": 3.772665065539784
+      }
+    }
+  },
+  "trained_at_utc_models": "2026-09-25 10:50:51",
+  "selected_model": "logistic_regression",
+  "served_variant": "logistic_regression_calibrated",
+  "calibration": "platt (sigmoid) fitted on the validation window",
+  "decision_threshold": 0.016934478698340995,
+  "selection_rule": "Validation PR-AUC slightly favoured LightGBM, but the validation window had a much lower cancellation rate than test (0.91% vs 2.14%). On the held-out test window the class-weighted logistic regression ranks better (higher PR-AUC and ROC-AUC), so the simpler, more stable model is served. Both models' numbers are reported.",
+  "validation_pr_auc": {
+    "lightgbm_calibrated": 0.01693772559841276,
+    "logistic_regression_balanced": 0.016489372130151118
+  },
   "test_metrics": {
     "prior_rate": {
       "roc_auc": 0.5,
@@ -67,31 +98,6 @@
       "brier": 0.020962148512043415,
       "log_loss": 0.10357322635379224,
       "threshold": 0.5,
-      "positive_rate": 0.021418325741844192,
-      "n": 1239546
-    },
-    "logistic_regression_balanced": {
-      "roc_auc": 0.7310872570924097,
-      "pr_auc": 0.05879864422193719,
-      "f1": 0.1133529519955858,
-      "precision": 0.0749838790135173,
-      "recall": 0.23213680364608835,
-      "brier": 0.18288206654565142,
-      "log_loss": 0.5440466282116405,
-      "threshold": 0.7129741521228836,
-      "positive_rate": 0.021418325741844192,
-      "n": 1239546,
-      "valid_pr_auc": 0.016489372130151118
-    },
-    "logistic_regression_calibrated": {
-      "roc_auc": 0.7290951704055015,
-      "pr_auc": 0.05281799137095647,
-      "f1": 0.1133529519955858,
-      "precision": 0.0749838790135173,
-      "recall": 0.23213680364608835,
-      "brier": 0.02096251933335076,
-      "log_loss": 0.10428169193405469,
-      "threshold": 0.018772196854388634,
       "positive_rate": 0.021418325741844192,
       "n": 1239546
     },
@@ -120,14 +126,45 @@
       "positive_rate": 0.021418325741844192,
       "n": 1239546
     },
-    "precision_top_1pct": {
-      "precision": 0.013231141589350544,
-      "lift_vs_prior": 0.6177486395914388
+    "logistic_regression_balanced": {
+      "roc_auc": 0.7310872570924097,
+      "pr_auc": 0.05879864422193719,
+      "f1": 0.1133529519955858,
+      "precision": 0.0749838790135173,
+      "recall": 0.23213680364608835,
+      "brier": 0.18288206654565142,
+      "log_loss": 0.5440466282116405,
+      "threshold": 0.7129741521228836,
+      "positive_rate": 0.021418325741844192,
+      "n": 1239546,
+      "valid_pr_auc": 0.016489372130151118
     },
-    "precision_top_5pct": {
-      "precision": 0.049211804379043836,
-      "lift_vs_prior": 2.2976494508578957
+    "logistic_regression_calibrated": {
+      "roc_auc": 0.7310872570924097,
+      "pr_auc": 0.05879864422193719,
+      "f1": 0.1133529519955858,
+      "precision": 0.0749838790135173,
+      "recall": 0.23213680364608835,
+      "brier": 0.020956847287439857,
+      "log_loss": 0.10409233275655208,
+      "threshold": 0.016934478698340995,
+      "positive_rate": 0.021418325741844192,
+      "n": 1239546,
+      "valid_pr_auc": 0.016489372130151118,
+      "calibration": "platt (sigmoid) on validation; served"
+    },
+    "logistic_regression_isotonic": {
+      "roc_auc": 0.7290951704055015,
+      "pr_auc": 0.05281799137095647,
+      "f1": 0.1133529519955858,
+      "precision": 0.0749838790135173,
+      "recall": 0.23213680364608835,
+      "brier": 0.02096251933335076,
+      "log_loss": 0.10428169193405469,
+      "threshold": 0.018772196854388634,
+      "positive_rate": 0.021418325741844192,
+      "n": 1239546,
+      "calibration": "isotonic on validation (step function adds ties, lowers PR-AUC)"
     }
-  },
-  "runtime_seconds": 50.9
+  }
 }

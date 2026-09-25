@@ -392,8 +392,14 @@ def performance() -> None:
                                 "F1": v["f1"], "Brier": v["brier"]}
                                for k, v in cm["test_metrics"].items() if "pr_auc" in v]).round(4),
                  hide_index=True, use_container_width=True)
-    st.caption(f"Served model: {cm['selected_model']} (picked on validation PR-AUC). Test "
-               f"positive rate {cm['test_metrics']['prior_rate']['positive_rate']:.4f}.")
+    vp, tm = cm["validation_pr_auc"], cm["test_metrics"]
+    st.caption(f"Served model: calibrated logistic regression (class-weighted, Platt scaling). "
+               f"Validation PR-AUC slightly favoured LightGBM ({vp['lightgbm_calibrated']:.4f} vs "
+               f"{vp['logistic_regression_balanced']:.4f}), but on the test window, where "
+               f"{tm['prior_rate']['positive_rate']:.2%} of flights were cancelled vs "
+               f"{cm['valid_positive_rate']:.2%} in validation, logistic regression generalised "
+               f"better (PR-AUC {tm['logistic_regression_calibrated']['pr_auc']:.4f} vs "
+               f"{tm['lightgbm_calibrated']['pr_auc']:.4f}).")
     st.image(str(FIG / "cancellation_curves.png"))
 
     st.markdown("##### 4 · Forecasting backtest (MAE)")

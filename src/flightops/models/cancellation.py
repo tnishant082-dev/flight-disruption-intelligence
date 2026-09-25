@@ -205,7 +205,7 @@ def _card(meta: dict) -> None:
                         "class-weighted model (same PR-AUC / ROC-AUC) while the probabilities are on "
                         f"a realistic scale. Decision threshold (best validation F1): "
                         f"{meta['decision_threshold']:.4f}.",
-        "Data": f"{meta['sampling']}. Cancellation rate: validation {meta['valid_positive_rate']:.4f}, "
+        "Data": f"{meta['sampling'][:1].upper() + meta['sampling'][1:]}. Cancellation rate: validation {meta['valid_positive_rate']:.4f}, "
                 f"test {r['prior_rate']['positive_rate']:.4f}.",
         "Imbalance handling": f"PR-AUC used for tuning; the logistic regression uses balanced class "
                               f"weights. LightGBM: Optuna ({meta['optuna_trials']} trials) on tree "

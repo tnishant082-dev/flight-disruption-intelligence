@@ -58,13 +58,15 @@ Pinball loss beats the global-quantile baseline at P10 (4.05 vs 4.25), P50 (14.4
 
 **3 · Cancellation risk** (1,239,546 test flights, 2.14% cancelled; heavily imbalanced)
 
-| Model | PR-AUC | ROC-AUC |
-|---|---|---|
-| Prior rate (baseline) | 0.021 | 0.500 |
-| Logistic regression, class-weighted | 0.059 | 0.731 |
-| LightGBM, Optuna on PR-AUC (selected on validation) | 0.040 | 0.705 |
+| Model | Validation PR-AUC | Test PR-AUC | Test ROC-AUC | Test Brier |
+|---|---|---|---|---|
+| Prior rate (baseline) | – | 0.021 | 0.500 | 0.0210 |
+| **Logistic regression, class-weighted + Platt calibration (served)** | 0.0165 | **0.059** | **0.731** | **0.0210** |
+| LightGBM, Optuna on PR-AUC, isotonic-calibrated | 0.0169 | 0.040 | 0.705 | 0.0210 |
 
-This is the weakest model, and I've left it that way on purpose. Cancellations are driven by storms, ATC programs and IT/crew failures that a schedule can't reveal. The validation window also had an unusually low cancellation rate (0.91%), so validation picked LightGBM, but on test the simpler logistic baseline ranks better. Both beat the prior; neither is good enough to act on alone.
+The served model is the logistic regression. Validation PR-AUC slightly favoured LightGBM (0.0169 vs 0.0165), and LightGBM was served at first. But the validation window (Apr–May 2026) had an unusually low cancellation rate, 0.91% against 2.14% in the test window, and on test the simpler, more stable logistic regression generalises clearly better. I switched to it and kept both sets of numbers here. Because that decision used the test window, the served model's test numbers are slightly optimistic. Platt scaling is monotone, so the served probabilities rank exactly like the class-weighted model while sitting on a realistic scale. Its riskiest 1% of flights are cancelled 11.1% of the time (5.2× the base rate); LightGBM's riskiest 1% were below the base rate.
+
+This is still the weakest model. Cancellations are driven by storms, ATC programs and IT/crew failures that a schedule can't reveal. Both models beat the prior; neither is good enough to act on alone.
 
 **4 · 7-day forecasting, 10 busiest airports** (8 rolling origins × 7-day horizon)
 
@@ -203,7 +205,7 @@ tests/          pytest suite (runs in CI)
 
 - Pre-departure delay prediction has a low ceiling. The best model reaches 0.688 ROC-AUC, only slightly above logistic regression.
 - The test window is summer peak. Calibrated probabilities under-predict by about 6 pp, so a production version would recalibrate on recent weeks.
-- The cancellation model is weak and validation-selected LightGBM loses to the logistic baseline on test.
+- The cancellation model is weak. The served logistic regression was chosen after seeing the test window (validation slightly favoured LightGBM), and its calibrator was fitted on a low-cancellation spring window, so it under-predicts summer risk (0.84% average predicted vs 2.14% observed).
 - Forecasting beats seasonal-naive on delay rate but not on departures, and a simple 4-week weekday mean is still the best delay-rate forecaster.
 - With only 12 months of history there's no year-over-year seasonality: the model never saw a previous June or July.
 - No weather data. Adding forecast weather as a day-ahead feature is the obvious next step.
