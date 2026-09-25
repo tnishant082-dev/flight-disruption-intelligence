@@ -1,0 +1,47 @@
+year_month,cancellation_reason,cancelled_flights
+2025-09,Carrier,1062
+2025-09,National Air System,710
+2025-09,Weather,1114
+2025-10,Carrier,1167
+2025-10,National Air System,916
+2025-10,Weather,1120
+2025-11,National Air System,7623
+2025-11,Carrier,2215
+2025-11,Weather,4320
+2026-02,Security,2
+2025-10,Security,1
+2025-11,Security,37
+2026-02,Carrier,1467
+2026-02,Weather,9910
+2026-02,National Air System,225
+2025-12,Weather,5020
+2025-12,Carrier,3124
+2025-12,National Air System,854
+2026-01,Weather,22463
+2026-01,National Air System,879
+2026-01,Carrier,2246
+2026-05,Carrier,1907
+2026-05,National Air System,428
+2026-05,Weather,3319
+2026-06,Weather,6603
+2026-06,Carrier,2124
+2026-06,National Air System,1286
+2026-04,Weather,3032
+2026-04,National Air System,699
+2026-04,Carrier,1668
+2026-03,Security,16
+2026-07,Security,2
+2025-08,Carrier,2001
+2025-08,National Air System,613
+2025-08,Weather,3869
+2026-03,Carrier,4850
+2026-03,Weather,10027
+2026-03,National Air System,2873
+2026-06,Security,6
+2026-07,National Air System,3115
+2026-07,Weather,8902
+2026-07,Carrier,4511
+2026-04,Security,2
+2026-01,Security,47
+2025-12,Security,2
+2026-05,Security,1

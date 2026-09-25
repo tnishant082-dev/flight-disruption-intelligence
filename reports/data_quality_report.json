@@ -1,0 +1,219 @@
+{
+  "run_at_utc": "2026-09-25 10:29:39",
+  "passed": 26,
+  "warned": 0,
+  "failed": 0,
+  "gate": "PASS",
+  "table": "staging.stg_flights",
+  "quarantined_rows": 16,
+  "checks": [
+    {
+      "name": "row_count_positive",
+      "category": "completeness",
+      "observed": 7043842.0,
+      "threshold": "> 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "rows_retained_vs_raw",
+      "category": "completeness",
+      "observed": 0.999998,
+      "threshold": ">= 0.999",
+      "status": "PASS",
+      "detail": "raw=7043858 staged=7043842"
+    },
+    {
+      "name": "duplicate_flight_id",
+      "category": "uniqueness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "not_null_flight_date",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "not_null_carrier",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "not_null_flight_number",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "not_null_origin",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "not_null_dest",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "not_null_crs_dep_hhmm",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "not_null_crs_arr_hhmm",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "not_null_distance_mi",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "valid_scheduled_dep_time",
+      "category": "validity",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "origin_differs_from_dest",
+      "category": "validity",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "binary_status_flags",
+      "category": "validity",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cancelled_has_reason_code",
+      "category": "consistency",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "reason_code_only_when_cancelled",
+      "category": "consistency",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "completed_has_arrival_delay",
+      "category": "completeness",
+      "observed": 0.0,
+      "threshold": "<= 0.001",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "arr_del15_matches_delay_minutes",
+      "category": "consistency",
+      "observed": 0.0,
+      "threshold": "<= 0.0005",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "delay_causes_sum_to_arrival_delay",
+      "category": "consistency",
+      "observed": 7.7e-05,
+      "threshold": "<= 0.01",
+      "status": "PASS",
+      "detail": "BTS attributes cause minutes for flights arriving 15+ min late"
+    },
+    {
+      "name": "positive_distance_and_block_time",
+      "category": "validity",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "taxi_out_plausible_0_240",
+      "category": "validity",
+      "observed": 1e-06,
+      "threshold": "<= 0.001",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "arrival_delay_over_24h_share",
+      "category": "validity",
+      "observed": 0.000106,
+      "threshold": "<= 0.0005",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "calendar_coverage_days",
+      "category": "completeness",
+      "observed": 365.0,
+      "threshold": "== 365",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "origin_in_airport_dim",
+      "category": "referential",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "airport_dim_has_coordinates",
+      "category": "enrichment",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "carrier_dim_named",
+      "category": "enrichment",
+      "observed": 0.0,
+      "threshold": "== 0",
+      "status": "PASS",
+      "detail": ""
+    }
+  ]
+}

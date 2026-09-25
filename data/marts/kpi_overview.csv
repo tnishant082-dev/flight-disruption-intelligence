@@ -1,0 +1,2 @@
+first_date,last_date,scheduled_flights,completed_flights,carriers,origin_airports,routes,on_time_pct,avg_arr_delay_min,avg_delay_when_late_min,cancellation_rate_pct,diversion_rate_pct
+2025-08-01,2026-07-31,7043842,6895508,14,359,7162,77.63,8.11,72.51,1.823,0.283
