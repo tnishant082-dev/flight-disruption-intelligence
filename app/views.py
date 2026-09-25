@@ -73,7 +73,6 @@ def metrics(name: str) -> dict:
     return json.loads((METRICS / f"{name}.json").read_text())
 
 
-# --------------------------------------------------------------------------- pages
 def overview() -> None:
     header("Executive overview", "How reliable was the US domestic network over the last 12 months, "
            "and where does disruption concentrate?")

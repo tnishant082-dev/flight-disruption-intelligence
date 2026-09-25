@@ -17,10 +17,12 @@ data/powerbi/*.parquet
 mlruns/
 mlflow.db
 
-.env
-.DS_Store
-tools/
-
 # Power BI local-only files
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+
+# local scratch
+tools/
+scratch/
+.env
+.DS_Store

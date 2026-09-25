@@ -1,13 +1,8 @@
-"""Feature engineering for the pre-departure models.
+"""Feature table for the pre-departure models.
 
-Pipeline
-1. sql/features/01_flight_features.sql -> features.flight_base (schedule-derived features).
-2. Calendar features (US federal holidays) joined from a calendar table.
-3. Target encodings of high-cardinality keys (route, carrier x origin, flight number):
-   * training rows get out-of-fold (5-fold, hashed on flight_id) encodings;
-   * validation / test rows get encodings computed from the full training window only.
-   * Lookups for serving are exported to models/lookups/.
-4. Split label: train (<= TRAIN_END), valid (<= VALID_END), test (after).
+Schedule features come from sql/features, holidays are joined here, and high-cardinality keys
+(route, carrier x origin, flight number) are target-encoded: out-of-fold on the training window,
+training-window statistics for validation/test. Serving lookups go to models/lookups/.
 """
 
 from __future__ import annotations
@@ -30,10 +25,8 @@ SCHEDULE_FEATURES = [
     "origin_sched_deps_day", "origin_sched_deps_hour", "dest_sched_arrs_hour",
     "carrier_sched_day",
 ]
-# Aircraft-rotation features are built from the tail number BTS reports, i.e. the aircraft that
-# actually operated (or was attached to a cancelled flight after the fact). That is NOT known at
-# scheduling time - a missing tail is 100% cancelled - so they are excluded from the pre-departure
-# models and only used in a clearly labelled day-of-operations comparison.
+# Rotation features come from the tail number that actually flew, which isn't known when the
+# schedule is published (a missing tail means the flight was cancelled). Day-of-ops comparison only.
 ROTATION_FEATURES = ["tail_leg_of_day", "tail_legs_day", "sched_turn_min"]
 TE_KEYS = {"route": "route", "carrier_origin": "carrier_origin", "flight": "flight_key"}
 TE_TARGETS = {"delay": "arr_del15", "cancel": "cancelled"}

@@ -1,10 +1,8 @@
 """Pre-departure arrival-delay classifier (ArrDel15) - completed flights only.
 
 Baselines: prior rate, logistic regression.  Challengers: XGBoost, LightGBM (Optuna-tuned),
-plus a day-of-operations LightGBM variant that adds aircraft-rotation features (reported for
-context only - those features are not known at scheduling time). The selected model is isotonic-calibrated
-on the validation window and its decision threshold is the F1-optimal point on validation.
-The test window (Jun-Jul 2026) is used once, for reporting.
+plus a day-of-operations variant with aircraft-rotation features, reported for context only.
+The served LightGBM is isotonic-calibrated on validation, with the F1-optimal threshold.
 """
 
 from __future__ import annotations
@@ -40,11 +38,11 @@ def run(train_rows: int = TRAIN_ROWS, valid_rows: int = VALID_ROWS, n_trials: in
     results: dict[str, dict] = {}
     test_probs: dict[str, np.ndarray] = {}
 
-    # --- baseline 0: training prior
+    # baseline: training prior
     prior = float(ytr.mean())
     results["prior_rate"] = common.classification_metrics(yte, np.full(len(yte), prior), 0.5)
 
-    # --- baseline 1: logistic regression
+    # baseline: logistic regression
     with tracker.run("logistic_regression"):
         lr = tabular.logistic_baseline(feats)
         lr.fit(tabular.to_lr_frame(tr, feats), ytr)
@@ -57,7 +55,7 @@ def run(train_rows: int = TRAIN_ROWS, valid_rows: int = VALID_ROWS, n_trials: in
                     {f"test_{k}": v for k, v in results["logistic_regression"].items()})
     print(f"  logreg done {time.time() - t0:.0f}s  auc={results['logistic_regression']['roc_auc']:.4f}")
 
-    # --- challenger: XGBoost (fixed, sensible params + early stopping)
+    # XGBoost with fixed params and early stopping
     with tracker.run("xgboost"):
         params = {"objective": "binary:logistic", "eval_metric": "auc", "tree_method": "hist",
                   "max_depth": 8, "eta": 0.1, "subsample": 0.8, "colsample_bytree": 0.8,
@@ -78,7 +76,7 @@ def run(train_rows: int = TRAIN_ROWS, valid_rows: int = VALID_ROWS, n_trials: in
                     {f"test_{k}": v for k, v in results["xgboost"].items()})
     print(f"  xgb done {time.time() - t0:.0f}s  auc={results['xgboost']['roc_auc']:.4f}")
 
-    # --- challenger: LightGBM + Optuna
+    # LightGBM tuned with Optuna
     with tracker.run("lightgbm_optuna"):
         best, best_iter, study = tabular.tune_lgbm(tr[feats], ytr, va[feats], yva,
                                                    n_trials=n_trials, timeout=300)
@@ -99,13 +97,13 @@ def run(train_rows: int = TRAIN_ROWS, valid_rows: int = VALID_ROWS, n_trials: in
                     {f"test_{k}": v for k, v in results["lightgbm_calibrated"].items()})
     print(f"  lgbm done {time.time() - t0:.0f}s  auc={results['lightgbm_calibrated']['roc_auc']:.4f}")
 
-    # --- context only: day-of-operations variant with actual aircraft-rotation features
+    # for context only: same model plus aircraft-rotation features (not known at scheduling time)
     b2 = lgb.train(best, lgb.Dataset(tr[DAY_OF_OPS_FEATURES], ytr), num_boost_round=best_iter)
     p2v, p2 = b2.predict(va[DAY_OF_OPS_FEATURES]), b2.predict(te[DAY_OF_OPS_FEATURES])
     results["dayofops_lightgbm_with_rotation"] = common.classification_metrics(
         yte, p2, common.best_f1_threshold(yva, p2v))
 
-    # --- artifacts
+    # artifacts
     out = common.artifact_dir(NAME)
     booster.save_model(str(out / "model.txt"))
     joblib.dump(iso, out / "calibrator.joblib")

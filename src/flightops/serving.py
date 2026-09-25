@@ -90,7 +90,6 @@ class Artifacts:
             self.cancel_cal = joblib.load(c / "calibrator.joblib")
         self.registry = json.loads((root / "registry.json").read_text())
 
-    # ------------------------------------------------------------------ features
     def build_features(self, f: FlightInput) -> pd.DataFrame:
         carrier, origin, dest = f.carrier.upper(), f.origin.upper(), f.dest.upper()
         for col, val in (("carrier", carrier), ("origin", origin), ("dest", dest)):
@@ -159,7 +158,6 @@ class Artifacts:
             row[f"te_{k}_cancel"] = float(t.at[key, "te_cancel"]) if hit else self.priors["cancel"]
         return prepare(pd.DataFrame([row])[ALL_FEATURES])
 
-    # ------------------------------------------------------------------ predictions
     def predict_delay(self, X: pd.DataFrame) -> dict:
         raw = float(self.delay_model.predict(X)[0])
         p = float(self.delay_cal.predict([raw])[0])

@@ -1,18 +1,11 @@
-"""Pre-departure cancellation-risk model (all scheduled flights, ~2% positive).
+"""Pre-departure cancellation risk (all scheduled flights, ~2% cancelled).
 
-Imbalance handling: PR-AUC is the tuning metric. Candidates are a class-weighted logistic
-regression and a LightGBM model (Optuna on tree parameters plus `scale_pos_weight`).
+Two candidates, both tuned on PR-AUC: a class-weighted logistic regression and LightGBM.
+The logistic regression is served, with Platt scaling fitted on the validation window.
+LightGBM edged it on validation, but the validation window had far fewer cancellations than
+test and the logistic model held up much better there (see the model card for numbers).
 
-Served model: the class-weighted logistic regression with Platt (sigmoid) calibration fitted on
-the validation window. Validation PR-AUC slightly favoured LightGBM (0.0169 vs 0.0165), but the
-validation window had an unusually low cancellation rate (0.91% vs 2.14% in test) and on the
-held-out test window the logistic regression ranks clearly better (PR-AUC 0.0588 vs 0.0404,
-ROC-AUC 0.7311 vs 0.7053). The simpler, more stable model is served; both sets of numbers are
-kept in the metadata and model card. Platt scaling is monotone, so the served probabilities keep
-the logistic regression's ranking exactly while restoring a realistic probability scale.
-
-`python -m flightops.models.cancellation --serve-logistic` refreshes only the serving layer
-(calibrator, metadata, scores, card) from the saved logistic regression without retraining.
+`--serve-logistic` refreshes the calibrator, metadata and scores without retraining.
 """
 
 from __future__ import annotations
