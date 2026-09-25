@@ -1,0 +1,123 @@
+/// Calendar with US federal holidays and model split
+table dim_date
+	lineageTag: 7f263c07-4913-589f-a809-056eb6d00f41
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: beab2524-23bd-5ca2-b6ab-ab18a6f590fb
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		lineageTag: 087e08af-db6d-5e96-8cf4-4dc47051085e
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 4311a5cf-961c-5199-9918-7d40c8452a2f
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d82c617-aae3-501f-9999-9116b2402271
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_label
+		dataType: string
+		lineageTag: ea48fa4b-6ae3-5f04-a46f-fd361a2f9153
+		summarizeBy: none
+		sourceColumn: month_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_month
+		dataType: string
+		lineageTag: e602c5f1-34a9-5a85-8c99-14be96604bf0
+		summarizeBy: none
+		sourceColumn: year_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 960efe18-9291-5eb7-9f29-4c20aed27134
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column iso_dow
+		dataType: int64
+		formatString: 0
+		lineageTag: 74afdbd3-cc07-57ec-8008-2cae67f88095
+		summarizeBy: none
+		sourceColumn: iso_dow
+
+		annotation SummarizationSetBy = Automatic
+
+	column dow_name
+		dataType: string
+		lineageTag: b1a231d2-8048-5b41-8023-c9fe76287f18
+		summarizeBy: none
+		sourceColumn: dow_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		lineageTag: 3e379bfe-ddf9-5813-bb58-93220bc690c7
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_federal_holiday
+		dataType: boolean
+		lineageTag: fb6348aa-d35e-5404-bb11-f49d8d2f3131
+		summarizeBy: none
+		sourceColumn: is_federal_holiday
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_to_holiday
+		dataType: int64
+		formatString: 0
+		lineageTag: b5e9ee15-f73a-504b-9936-514a0ec32c44
+		summarizeBy: none
+		sourceColumn: days_to_holiday
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_split
+		dataType: string
+		lineageTag: 9a043f31-cb83-5b81-a696-c7c5821e7cc3
+		summarizeBy: none
+		sourceColumn: model_split
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\dim_date.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"date_key", Int64.Type}, {"date", type date}, {"year", Int64.Type}, {"month", Int64.Type}, {"month_label", type text}, {"year_month", type text}, {"quarter", Int64.Type}, {"iso_dow", Int64.Type}, {"dow_name", type text}, {"is_weekend", type logical}, {"is_federal_holiday", type logical}, {"days_to_holiday", Int64.Type}, {"model_split", type text}} )
+				in
+				    Typed

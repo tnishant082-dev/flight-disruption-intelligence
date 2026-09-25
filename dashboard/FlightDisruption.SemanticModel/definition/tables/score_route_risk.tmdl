@@ -1,0 +1,78 @@
+/// Route-level mean predicted delay risk (test)
+table score_route_risk
+	lineageTag: 20bc7741-409c-5b39-a12e-4cf2d4ee64ea
+
+	column route
+		dataType: string
+		lineageTag: 8aede3f5-fdf3-5860-94c4-c6f65a8e40cd
+		summarizeBy: none
+		sourceColumn: route
+
+		annotation SummarizationSetBy = Automatic
+
+	column origin_airport
+		dataType: string
+		lineageTag: 95a61cf6-b24b-5f3c-984c-589354376a97
+		summarizeBy: none
+		sourceColumn: origin_airport
+
+		annotation SummarizationSetBy = Automatic
+
+	column dest_airport
+		dataType: string
+		lineageTag: f549dd5b-5d13-51dd-be4a-eea027234705
+		summarizeBy: none
+		sourceColumn: dest_airport
+
+		annotation SummarizationSetBy = Automatic
+
+	column completed_flights
+		dataType: int64
+		formatString: 0
+		lineageTag: 24dd53f0-f9bd-5a6c-937a-7c23fe1139b3
+		summarizeBy: none
+		sourceColumn: completed_flights
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_delay_prob
+		dataType: double
+		lineageTag: 9536f065-5f8a-5082-a5b7-9bcbbc7e4912
+		summarizeBy: sum
+		sourceColumn: mean_delay_prob
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_delay_rate
+		dataType: double
+		lineageTag: 1ae89da7-4f3b-54f6-bd08-513ef556cc33
+		summarizeBy: sum
+		sourceColumn: observed_delay_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_p90_min
+		dataType: double
+		lineageTag: e7086377-5343-544c-9edc-c60fd25cee60
+		summarizeBy: sum
+		sourceColumn: mean_p90_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_cancel_prob
+		dataType: double
+		lineageTag: 455165fe-8b1f-5a15-b82f-ee3153b5b2c0
+		summarizeBy: sum
+		sourceColumn: mean_cancel_prob
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_route_risk = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\score_route_risk.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"route", type text}, {"origin_airport", type text}, {"dest_airport", type text}, {"completed_flights", Int64.Type}, {"mean_delay_prob", type number}, {"observed_delay_rate", type number}, {"mean_p90_min", type number}, {"mean_cancel_prob", type number}} )
+				in
+				    Typed

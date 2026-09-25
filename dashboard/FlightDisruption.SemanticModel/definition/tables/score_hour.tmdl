@@ -1,0 +1,47 @@
+/// Predicted vs observed delay rate by scheduled hour (test)
+table score_hour
+	lineageTag: e8e025b9-3997-5066-b8d8-a61bfa61daca
+
+	column dep_hour
+		dataType: int64
+		formatString: 0
+		lineageTag: 5686e164-1cba-517e-a25a-123dfed82308
+		summarizeBy: none
+		sourceColumn: dep_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column flights
+		dataType: int64
+		formatString: 0
+		lineageTag: a18d2bbc-2d91-5a66-9cff-d945dc76e73d
+		summarizeBy: none
+		sourceColumn: flights
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_delay_prob
+		dataType: double
+		lineageTag: 08c28843-a54f-5783-914c-d93335f61e6f
+		summarizeBy: sum
+		sourceColumn: mean_delay_prob
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_delay_rate
+		dataType: double
+		lineageTag: ad3e5752-4eaf-5daf-ba82-a336de981891
+		summarizeBy: sum
+		sourceColumn: observed_delay_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_hour = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\score_hour.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"dep_hour", Int64.Type}, {"flights", Int64.Type}, {"mean_delay_prob", type number}, {"observed_delay_rate", type number}} )
+				in
+				    Typed

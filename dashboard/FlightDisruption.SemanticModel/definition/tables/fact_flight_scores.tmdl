@@ -1,0 +1,112 @@
+/// Model scores for every test-window flight (Jun-Jul 2026)
+table fact_flight_scores
+	lineageTag: 5d5b83e5-f8fa-58de-a904-0acd82e55677
+
+	column flight_id
+		dataType: string
+		lineageTag: 7e42b26f-7ee3-5c76-830e-f005c3c0ae08
+		summarizeBy: none
+		sourceColumn: flight_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: afc1f541-850d-5c15-a566-e4112e1719af
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_code
+		dataType: string
+		lineageTag: 35e7c9ce-2fc9-5e7d-b064-03f3c363e2a2
+		summarizeBy: none
+		sourceColumn: carrier_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column origin_airport
+		dataType: string
+		lineageTag: eb97d94a-7e78-58c3-9222-d612ffd0b1df
+		summarizeBy: none
+		sourceColumn: origin_airport
+
+		annotation SummarizationSetBy = Automatic
+
+	column route
+		dataType: string
+		lineageTag: 59389198-3f77-599e-9786-9bfab577ef45
+		summarizeBy: none
+		sourceColumn: route
+
+		annotation SummarizationSetBy = Automatic
+
+	column delay_prob
+		dataType: double
+		lineageTag: e7e83ef9-d649-549f-814c-ca2064c6166e
+		summarizeBy: sum
+		sourceColumn: delay_prob
+
+		annotation SummarizationSetBy = Automatic
+
+	column delay_pred
+		dataType: int64
+		formatString: 0
+		lineageTag: c134b20f-d79a-51f4-8b12-0736926661c1
+		summarizeBy: none
+		sourceColumn: delay_pred
+
+		annotation SummarizationSetBy = Automatic
+
+	column delay_p50
+		dataType: double
+		lineageTag: 5249f81a-c292-58e4-a303-ee516618ecba
+		summarizeBy: sum
+		sourceColumn: delay_p50
+
+		annotation SummarizationSetBy = Automatic
+
+	column delay_p90
+		dataType: double
+		lineageTag: 25731f48-0224-5a2d-8a36-7fa2d810d288
+		summarizeBy: sum
+		sourceColumn: delay_p90
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancel_prob
+		dataType: double
+		lineageTag: 2f3227ac-baa3-5227-819e-4ff934ff46da
+		summarizeBy: sum
+		sourceColumn: cancel_prob
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_del15
+		dataType: int64
+		formatString: 0
+		lineageTag: bc6a8989-4d56-55ae-84db-efaf6f276d10
+		summarizeBy: none
+		sourceColumn: arr_del15
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancelled
+		dataType: int64
+		formatString: 0
+		lineageTag: eff30938-f8f4-5a13-98ac-0ec525a5f170
+		summarizeBy: none
+		sourceColumn: cancelled
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_flight_scores = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document ( File.Contents ( DataFolder & "\fact_flight_scores.parquet" ) ),
+				    Typed = Table.TransformColumnTypes ( Source, {{"flight_id", type text}, {"date_key", Int64.Type}, {"carrier_code", type text}, {"origin_airport", type text}, {"route", type text}, {"delay_prob", type number}, {"delay_pred", Int64.Type}, {"delay_p50", type number}, {"delay_p90", type number}, {"cancel_prob", type number}, {"arr_del15", Int64.Type}, {"cancelled", Int64.Type}} )
+				in
+				    Typed

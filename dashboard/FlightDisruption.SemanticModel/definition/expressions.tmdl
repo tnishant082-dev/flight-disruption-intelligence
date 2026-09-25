@@ -1,0 +1,5 @@
+/// Folder that holds the exports from `make powerbi` (data/powerbi). Change it to your local clone path.
+expression DataFolder = "C:\\flight-disruption-intelligence\\data\\powerbi" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: d29516e1-00b7-52d8-9549-2408299d3251
+
+	annotation PBI_ResultType = Text

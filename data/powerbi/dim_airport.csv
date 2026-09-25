@@ -1,0 +1,360 @@
+airport_code,airport_name,city,state,latitude,longitude,elevation_ft,airport_type,has_ourairports_match,ops_segment
+ABE,Lehigh Valley International Airport,"Allentown/Bethlehem/Easton, PA",PA,40.651773,-75.442797,393.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+ABI,Abilene Regional Airport,"Abilene, TX",TX,32.4113006592,-99.68190002440001,1791.0,medium_airport,true,
+ABQ,Albuquerque International Sunport,"Albuquerque, NM",NM,35.039976,-106.608925,5355.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+ABR,Aberdeen Regional Airport,"Aberdeen, SD",SD,45.449100494384766,-98.42179870605469,1302.0,medium_airport,true,
+ABY,Southwest Georgia Regional Airport,"Albany, GA",GA,31.532946,-84.196215,197.0,medium_airport,true,
+ACK,Nantucket Memorial Airport,"Nantucket, MA",MA,41.25310135,-70.06020355,47.0,medium_airport,true,
+ACT,Waco Regional Airport,"Waco, TX",TX,31.611299514770508,-97.23049926757812,516.0,medium_airport,true,
+ACV,California Redwood Coast-Humboldt County Airport,"Arcata/Eureka, CA",CA,40.978101,-124.109,221.0,medium_airport,true,
+ACY,Atlantic City International Airport,"Atlantic City, NJ",NJ,39.456201,-74.577511,75.0,medium_airport,true,
+ADK,Adak Airport,"Adak Island, AK",AK,51.883564,-176.642783,18.0,medium_airport,true,
+ADQ,Kodiak Airport,"Kodiak, AK",AK,57.75,-152.4940033,78.0,medium_airport,true,
+AEX,Alexandria International Airport,"Alexandria, LA",LA,31.325828,-92.546702,89.0,medium_airport,true,
+AGS,Augusta Regional At Bush Field,"Augusta, GA",GA,33.3699,-81.9645,144.0,medium_airport,true,
+AKN,King Salmon Airport,"King Salmon, AK",AK,58.677845,-156.651965,73.0,medium_airport,true,
+ALB,Albany International Airport,"Albany, NY",NY,42.748299,-73.801697,285.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+ALO,Waterloo Regional Airport,"Waterloo, IA",IA,42.557098388671875,-92.40029907226562,873.0,medium_airport,true,
+AMA,Rick Husband Amarillo International Airport,"Amarillo, TX",TX,35.217857,-101.706444,3607.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+ANC,Ted Stevens Anchorage International Airport,"Anchorage, AK",AK,61.179004,-149.992561,152.0,large_airport,true,"Mid-size - stable delays, quick turn"
+APN,Alpena County Regional Airport,"Alpena, MI",MI,45.0780983,-83.56030273,690.0,medium_airport,true,
+ASE,Aspen-Pitkin County Airport (Sardy Field),"Aspen, CO",CO,39.223202,-106.869003,7820.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+ATL,Hartsfield Jackson Atlanta International Airport,"Atlanta, GA",GA,33.6367,-84.428101,1026.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+ATW,Appleton International Airport,"Appleton, WI",WI,44.258515,-88.519,918.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+ATY,Watertown Regional Airport,"Watertown, SD",SD,44.91400146,-97.15470123,1749.0,medium_airport,true,
+AUS,Austin Bergstrom International Airport,"Austin, TX",TX,30.197535,-97.662015,542.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+AVL,Asheville Regional Airport,"Asheville, NC",NC,35.435488,-82.541853,2165.0,medium_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+AVP,Wilkes-Barre/Scranton International Airport,"Scranton/Wilkes-Barre, PA",PA,41.337064,-75.724232,962.0,medium_airport,true,
+AZA,Mesa Gateway Airport,"Phoenix, AZ",AZ,33.3078,-111.654999,1382.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+AZO,Kalamazoo/Battle Creek International Airport,"Kalamazoo, MI",MI,42.232105,-85.549637,874.0,medium_airport,true,
+BDL,Bradley International Airport,"Hartford, CT",CT,41.938555,-72.688016,173.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+BET,Bethel Airport,"Bethel, AK",AK,60.77980042,-161.8379974,126.0,medium_airport,true,
+BFF,Western Neb. Rgnl/William B. Heilig Airport,"Scottsbluff, NE",NE,41.87400055,-103.5960007,3967.0,medium_airport,true,
+BFL,Meadows Field,"Bakersfield, CA",CA,35.433601,-119.056999,510.0,medium_airport,true,
+BGM,Greater Binghamton/Edwin A Link field,"Binghamton, NY",NY,42.20869827,-75.97979736,1636.0,medium_airport,true,
+BGR,Bangor International Airport,"Bangor, ME",ME,44.806364,-68.826668,192.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+BHM,Birmingham-Shuttlesworth International Airport,"Birmingham, AL",AL,33.562877,-86.750712,650.0,large_airport,true,"Regional - short-haul mix, few NAS delays"
+BIH,Eastern Sierra Regional Airport,"Bishop, CA",CA,37.3731,-118.363998,4124.0,medium_airport,true,
+BIL,Billings Logan International Airport,"Billings, MT",MT,45.808932,-108.541242,3652.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+BIS,Bismarck Municipal Airport,"Bismarck/Mandan, ND",ND,46.772734,-100.746874,1661.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+BJI,Bemidji Regional Airport,"Bemidji, MN",MN,47.50939941,-94.93370056,1391.0,medium_airport,true,
+BLI,Bellingham International Airport,"Bellingham, WA",WA,48.79280090332031,-122.53800201416016,170.0,medium_airport,true,
+BLV,Scott AFB/Midamerica Airport,"Belleville, IL",IL,38.5452,-89.835197,459.0,medium_airport,true,
+BMI,Central Illinois Regional Airport at Bloomington-Normal,"Bloomington/Normal, IL",IL,40.4771,-88.915901,871.0,medium_airport,true,
+BNA,Nashville International Airport,"Nashville, TN",TN,36.1245,-86.6782,599.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+BOI,Boise Air Terminal/Gowen Field,"Boise, ID",ID,43.5644,-116.223,2871.0,large_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+BOS,Boston Logan International Airport,"Boston, MA",MA,42.36197,-71.0079,20.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+BPT,Jack Brooks Regional Airport,"Beaumont/Port Arthur, TX",TX,29.9508,-94.020699,15.0,medium_airport,true,
+BQK,Brunswick Golden Isles Airport,"Brunswick, GA",GA,31.258801,-81.466499,26.0,medium_airport,true,
+BQN,Rafael Hernández International Airport,"Aguadilla, PR",PR,18.4949,-67.129402,237.0,medium_airport,true,
+BRD,Brainerd Lakes Regional Airport,"Brainerd, MN",MN,46.402861,-94.129727,1232.0,medium_airport,true,
+BRO,Brownsville South Padre Island International Airport,"Brownsville, TX",TX,25.907238,-97.425235,22.0,medium_airport,true,
+BRW,Wiley Post Will Rogers Memorial Airport,"Barrow, AK",AK,71.285402,-156.766008,44.0,medium_airport,true,
+BTM,Bert Mooney Airport,"Butte, MT",MT,45.95479965209961,-112.49700164794922,5550.0,medium_airport,true,
+BTR,Baton Rouge Metropolitan Airport,"Baton Rouge, LA",LA,30.533199,-91.149597,70.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+BTV,Patrick Leahy Burlington International Airport,"Burlington, VT",VT,44.471901,-73.153297,335.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+BUF,Buffalo Niagara International Airport,"Buffalo, NY",NY,42.940498,-78.732201,728.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+BUR,Hollywood Burbank/Bob Hope Airport,"Burbank, CA",CA,34.202834,-118.35805,778.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+BWI,Baltimore/Washington International Thurgood Marshall Airport,"Baltimore, MD",MD,39.1754,-76.668297,146.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+BZN,Bozeman Yellowstone International Airport,"Bozeman, MT",MT,45.778853,-111.153711,4473.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+CAE,Columbia Metropolitan Airport,"Columbia, SC",SC,33.938172,-81.123022,236.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+CAK,Akron Canton Regional Airport,"Akron, OH",OH,40.916099548339844,-81.44219970703125,1228.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+CDC,Cedar City Regional Airport,"Cedar City, UT",UT,37.70100021362305,-113.0989990234375,5622.0,medium_airport,true,
+CDV,Merle K (Mudhole) Smith Airport,"Cordova, AK",AK,60.491798,-145.477997,54.0,medium_airport,true,
+CHA,Chattanooga Metropolitan Airport (Lovell Field),"Chattanooga, TN",TN,35.035301,-85.203796,683.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+CHO,Charlottesville Albemarle Airport,"Charlottesville, VA",VA,38.13859939575195,-78.4529037475586,639.0,medium_airport,true,
+CHS,Charleston International Airport,"Charleston, SC",SC,32.896159,-80.038151,46.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+CID,The Eastern Iowa Airport,"Cedar Rapids/Iowa City, IA",IA,41.884701,-91.7108,869.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+CIU,Chippewa County International Airport,"Sault Ste. Marie, MI",MI,46.242038,-84.462082,800.0,medium_airport,true,
+CKB,North Central West Virginia Airport,"Clarksburg/Fairmont, WV",WV,39.2966,-80.228104,1217.0,medium_airport,true,
+CLD,McClellan-Palomar Airport,"Carlsbad, CA",CA,33.1283,-117.279999,331.0,medium_airport,true,
+CLE,Cleveland Hopkins International Airport,"Cleveland, OH",OH,41.411701,-81.8498,791.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+CLL,Easterwood Field,"College Station/Bryan, TX",TX,30.5886,-96.3638,320.0,medium_airport,true,
+CLT,Charlotte Douglas International Airport,"Charlotte, NC",NC,35.2140007019043,-80.94309997558594,748.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+CMH,John Glenn Columbus International Airport,"Columbus, OH",OH,39.998001,-82.891899,815.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+CMI,University of Illinois Willard Airport,"Champaign/Urbana, IL",IL,40.039819,-88.276249,755.0,medium_airport,true,
+CMX,Houghton County Memorial Airport,"Hancock/Houghton, MI",MI,47.168399810791016,-88.48909759521484,1095.0,medium_airport,true,
+COD,Yellowstone Regional Airport,"Cody, WY",WY,44.520199,-109.024002,5102.0,medium_airport,true,
+COS,City of Colorado Springs Municipal Airport,"Colorado Springs, CO",CO,38.805801,-104.700996,6187.0,large_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+COU,Columbia Regional Airport,"Columbia, MO",MO,38.8181,-92.219597,889.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+CPR,Casper-Natrona County International Airport,"Casper, WY",WY,42.907381,-106.461609,5350.0,medium_airport,true,
+CRP,Corpus Christi International Airport,"Corpus Christi, TX",TX,27.770399,-97.501198,44.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+CRW,Yeager Airport,"Charleston/Dunbar, WV",WV,38.3731,-81.593201,981.0,medium_airport,true,
+CSG,Columbus Airport,"Columbus, GA",GA,32.516415,-84.939602,397.0,medium_airport,true,
+CVG,Cincinnati Northern Kentucky International Airport,"Cincinnati, OH",KY,39.048801,-84.667801,896.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+CWA,Central Wisconsin Airport,"Mosinee, WI",WI,44.777448,-89.670238,1277.0,medium_airport,true,
+CYS,Cheyenne Regional Jerry Olson Field,"Cheyenne, WY",WY,41.155701,-104.811997,6159.0,medium_airport,true,
+DAB,Daytona Beach International Airport,"Daytona Beach, FL",FL,29.18255,-81.059464,34.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+DAL,Dallas Love Field,"Dallas, TX",TX,32.844776,-96.847653,487.0,large_airport,true,"Mid-size - stable delays, quick turn"
+DAY,James M. Cox Dayton International Airport,"Dayton, OH",OH,39.902401,-84.219398,1009.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+DCA,Ronald Reagan Washington National Airport,"Washington, DC",VA,38.8521,-77.037697,15.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+DDC,Dodge City Regional Airport,"Dodge City, KS",KS,37.76340103149414,-99.9655990600586,2594.0,medium_airport,true,
+DEC,Decatur Airport,"Decatur, IL",IL,39.834598541259766,-88.8656997680664,682.0,medium_airport,true,
+DEN,Denver International Airport,"Denver, CO",CO,39.860027,-104.673792,5431.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+DFW,Dallas Fort Worth International Airport,"Dallas/Fort Worth, TX",TX,32.896801,-97.038002,607.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+DHN,Dothan Regional Airport,"Dothan, AL",AL,31.321300506591797,-85.44960021972656,401.0,medium_airport,true,
+DIK,Dickinson Theodore Roosevelt Regional Airport,"Dickinson, ND",ND,46.797533,-102.801905,2592.0,medium_airport,true,
+DLG,Dillingham Airport,"Dillingham, AK",AK,59.04470062,-158.5050049,81.0,medium_airport,true,
+DLH,Duluth International Airport,"Duluth, MN",MN,46.841873,-92.198746,1428.0,medium_airport,true,
+DRO,Durango La Plata County Airport,"Durango, CO",CO,37.151501,-107.753998,6685.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+DSM,Des Moines International Airport,"Des Moines, IA",IA,41.534027,-93.656719,958.0,large_airport,true,"Regional - volatile delays, delay-prone"
+DTW,Detroit Metropolitan Wayne County Airport,"Detroit, MI",MI,42.21377,-83.353786,645.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+DVL,Devils Lake Regional Airport,"Devils Lake, ND",ND,48.115454,-98.908796,1456.0,medium_airport,true,
+EAR,Kearney Regional Airport,"Kearney, NE",NE,40.727001,-99.006798,2131.0,medium_airport,true,
+EAU,Chippewa Valley Regional Airport,"Eau Claire, WI",WI,44.86579895019531,-91.48429870605469,913.0,medium_airport,true,
+ECP,Northwest Florida Beaches International Airport,"Panama City, FL",FL,30.357106,-85.795414,69.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+EGE,Eagle County Regional Airport,"Eagle, CO",CO,39.64260101,-106.9179993,6548.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+EKO,Elko Regional Airport,"Elko, NV",NV,40.82490158081055,-115.79199981689453,5140.0,medium_airport,true,
+ELM,Elmira Corning Regional Airport,"Elmira/Corning, NY",NY,42.1599006652832,-76.8916015625,954.0,medium_airport,true,
+ELP,El Paso International Airport,"El Paso, TX",TX,31.809908,-106.375607,3959.0,large_airport,true,"Regional - short-haul mix, few NAS delays"
+ERI,Erie International Tom Ridge Field,"Erie, PA",PA,42.083127,-80.173867,732.0,medium_airport,true,
+ESC,Delta County Airport,"Escanaba, MI",MI,45.723199,-87.088623,609.0,medium_airport,true,
+EUG,Eugene Airport,"Eugene, OR",OR,44.124599,-123.211998,374.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+EVV,Evansville Regional Airport,"Evansville, IN",IN,38.0369987488,-87.5324020386,418.0,medium_airport,true,
+EWN,Coastal Carolina Regional Airport,"New Bern/Morehead/Beaufort, NC",NC,35.0730018616,-77.04290008539999,18.0,medium_airport,true,
+EWR,Newark Liberty International Airport,"Newark, NJ",NJ,40.6894,-74.170545,18.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+EYW,Key West International Airport,"Key West, FL",FL,24.556119,-81.759579,3.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+FAI,Fairbanks International Airport,"Fairbanks, AK",AK,64.815102,-147.856003,439.0,medium_airport,true,"Mid-size - stable delays, quick turn"
+FAR,Hector International Airport,"Fargo, ND",ND,46.9207,-96.815804,902.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+FAT,Fresno Yosemite International Airport,"Fresno, CA",CA,36.775767,-119.718018,336.0,large_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+FAY,Fayetteville Regional Airport - Grannis Field,"Fayetteville, NC",NC,34.991199,-78.880302,189.0,medium_airport,true,
+FCA,Glacier Park International Airport,"Kalispell, MT",MT,48.310501,-114.255997,2977.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+FLG,Flagstaff Pulliam Airport,"Flagstaff, AZ",AZ,35.139757,-111.669826,7014.0,medium_airport,true,
+FLL,Fort Lauderdale Hollywood International Airport,"Fort Lauderdale, FL",FL,26.072599,-80.152702,9.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+FMN,Four Corners Regional Airport,"Farmington, NM",NM,36.741199,-108.230003,5506.0,medium_airport,true,
+FNT,Bishop International Airport,"Flint, MI",MI,42.969294,-83.743355,782.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+FOD,Fort Dodge Regional Airport,"Fort Dodge, IA",IA,42.552624,-94.191237,1156.0,medium_airport,true,
+FSD,Sioux Falls Regional Airport,"Sioux Falls, SD",SD,43.585463,-96.741152,1429.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+FSM,Fort Smith Regional Airport,"Fort Smith, AR",AR,35.336601,-94.367401,469.0,medium_airport,true,
+FWA,Fort Wayne International Airport,"Fort Wayne, IN",IN,40.978896,-85.194465,814.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+GCC,Northeast Wyoming Regional Airport,"Gillette, WY",WY,44.3489,-105.539001,4365.0,medium_airport,true,
+GCK,Garden City Regional Airport,"Garden City, KS",KS,37.9275016785,-100.723999023,2891.0,medium_airport,true,
+GEG,Spokane International Airport,"Spokane, WA",WA,47.6199,-117.533997,2376.0,large_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+GFK,Grand Forks International Airport,"Grand Forks, ND",ND,47.949299,-97.176102,845.0,medium_airport,true,
+GGG,East Texas Regional Airport,"Longview, TX",TX,32.38399887084961,-94.71150207519531,365.0,medium_airport,true,
+GJT,Grand Junction Regional Airport,"Grand Junction, CO",CO,39.126663,-108.529387,4858.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+GNV,Gainesville Regional Airport,"Gainesville, FL",FL,29.6900997162,-82.2717971802,152.0,medium_airport,true,
+GPT,Gulfport Biloxi International Airport,"Gulfport/Biloxi, MS",MS,30.405582,-89.069836,28.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+GRB,Austin Straubel International Airport,"Green Bay, WI",WI,44.483459,-88.130805,695.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+GRI,Central Nebraska Regional Airport,"Grand Island, NE",NE,40.967498779296875,-98.30960083007812,1847.0,medium_airport,true,
+GRK,Killeen Regional Airport / Robert Gray Army Airfield,"Killeen, TX",TX,31.0672,-97.828903,1015.0,medium_airport,true,
+GRR,Gerald R. Ford International Airport,"Grand Rapids, MI",MI,42.880798,-85.522797,794.0,large_airport,true,"Regional - volatile delays, delay-prone"
+GSO,Piedmont Triad International Airport,"Greensboro/High Point, NC",NC,36.09937,-79.937262,925.0,large_airport,true,"Regional - short-haul mix, few NAS delays"
+GSP,Greenville-Spartanburg International Airport,"Greer, SC",SC,34.895699,-82.218903,964.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+GST,Gustavus Airport,"Gustavus, AK",AK,58.4253006,-135.7070007,35.0,medium_airport,true,
+GTF,Great Falls International Airport,"Great Falls, MT",MT,47.481998,-111.371002,3680.0,medium_airport,true,
+GTR,Golden Triangle Regional Airport,"Columbus, MS",MS,33.450298,-88.5914,264.0,medium_airport,true,
+GUC,Gunnison Crested Butte Regional Airport,"Gunnison, CO",CO,38.534672,-106.934566,7680.0,medium_airport,true,
+GUF,Jack Edwards National Airport,"Gulf Shores, AL",AL,30.290501,-87.671799,17.0,small_airport,true,
+GUM,Antonio B. Won Pat International Airport,"Guam, TT",TT,13.485,144.797282,298.0,large_airport,true,
+HDN,Yampa Valley Airport,"Hayden, CO",CO,40.481201,-107.218002,6606.0,medium_airport,true,
+HEZ,Natchez–Adams County Airport / Hardy-Anders Field,"Natchez, MS",MS,31.614817,-91.297331,272.0,small_airport,true,
+HGR,Hagerstown Regional Richard A Henson Field,"Hagerstown, MD",MD,39.708771,-77.728014,703.0,medium_airport,true,
+HHH,Hilton Head Airport,"Hilton Head, SC",SC,32.2244,-80.697502,19.0,medium_airport,true,
+HIB,Range Regional Airport,"Hibbing, MN",MN,47.384831,-92.836905,1354.0,medium_airport,true,
+HLN,Helena Regional Airport,"Helena, MT",MT,46.6068,-111.983002,3877.0,medium_airport,true,
+HNL,Daniel K. Inouye International Airport,"Honolulu, HI",HI,21.318387,-157.92567,13.0,large_airport,true,"Mid-size - stable delays, quick turn"
+HOB,Lea County Regional Airport,"Hobbs, NM",NM,32.6875,-103.217003,3661.0,medium_airport,true,
+HOU,William P. Hobby Airport,"Houston, TX",TX,29.645336,-95.276812,46.0,large_airport,true,"Mid-size - stable delays, quick turn"
+HPN,Westchester County Airport,"White Plains, NY",NY,41.06700134277344,-73.70760345458984,439.0,medium_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+HRL,Valley International Airport,"Harlingen/San Benito, TX",TX,26.228500366210938,-97.65440368652344,36.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+HSV,Huntsville International Airport,"Huntsville, AL",AL,34.636244,-86.774378,629.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+HTS,Tri-State Airport / Milton J. Ferguson Field,"Ashland, WV",WV,38.366699,-82.557999,828.0,medium_airport,true,
+HYA,Cape Cod Gateway Airport,"Hyannis, MA",MA,41.6693,-70.280403,54.0,medium_airport,true,
+HYS,Hays Regional Airport,"Hays, KS",KS,38.844521,-99.273148,1999.0,medium_airport,true,
+IAD,Washington Dulles International Airport,"Washington, DC",VA,38.9445,-77.455803,312.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+IAG,Niagara Falls International Airport,"Niagara Falls, NY",NY,43.1073,-78.946198,589.0,medium_airport,true,
+IAH,George Bush Intercontinental Airport,"Houston, TX",TX,29.9844,-95.3414,97.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+ICT,Wichita Dwight D. Eisenhower National Airport,"Wichita, KS",KS,37.650314,-97.428583,1333.0,medium_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+IDA,Idaho Falls Regional Airport,"Idaho Falls, ID",ID,43.514599,-112.070999,4744.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+ILM,Wilmington International Airport,"Wilmington, NC",NC,34.272345,-77.905117,32.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+IMT,Ford Airport,"Iron Mountain/Kingsfd, MI",MI,45.81911,-88.114557,1182.0,medium_airport,true,
+IND,Indianapolis International Airport,"Indianapolis, IN",IN,39.7173,-86.294403,797.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+INL,Falls International Airport,"International Falls, MN",MN,48.566200256347656,-93.4030990600586,1185.0,medium_airport,true,
+ISP,Long Island MacArthur Airport,"Islip, NY",NY,40.796324,-73.101703,99.0,medium_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+ITO,Hilo International Airport,"Hilo, HI",HI,19.72135,-155.045428,38.0,medium_airport,true,"Mid-size - stable delays, quick turn"
+JAC,Jackson Hole Airport,"Jackson, WY",WY,43.6073,-110.737999,6451.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+JAN,Jackson-Medgar Wiley Evers International Airport,"Jackson/Vicksburg, MS",MS,32.311199,-90.075897,346.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+JAX,Jacksonville International Airport,"Jacksonville, FL",FL,30.492469,-81.687813,30.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+JFK,John F. Kennedy International Airport,"New York, NY",NY,40.639447,-73.779317,13.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+JLN,Joplin Regional Airport,"Joplin, MO",MO,37.151798,-94.498299,981.0,medium_airport,true,
+JMS,Jamestown Regional Airport,"Jamestown, ND",ND,46.92969894,-98.67819977,1500.0,medium_airport,true,
+JNU,Juneau International Airport,"Juneau, AK",AK,58.354935,-134.574416,21.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+JST,John Murtha Johnstown Cambria County Airport,"Johnstown, PA",PA,40.31610107421875,-78.83390045166016,2284.0,medium_airport,true,
+KOA,Ellison Onizuka Kona International Airport at Keāhole,"Kona, HI",HI,19.738783,-156.045603,47.0,large_airport,true,"Mid-size - stable delays, quick turn"
+KTN,Ketchikan International Airport,"Ketchikan, AK",AK,55.35559845,-131.7140045,89.0,medium_airport,true,
+LAF,Purdue University Airport,"Lafayette, IN",IN,40.412875,-86.939363,606.0,medium_airport,true,
+LAN,Capital Region International Airport,"Lansing, MI",MI,42.777582,-84.585721,861.0,medium_airport,true,
+LAR,Laramie Regional Airport,"Laramie, WY",WY,41.31209945678711,-105.67500305175781,7284.0,medium_airport,true,
+LAS,Harry Reid International Airport,"Las Vegas, NV",NV,36.083361,-115.151817,2181.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+LAW,Lawton Fort Sill Regional Airport,"Lawton/Fort Sill, OK",OK,34.567699,-98.416603,1110.0,medium_airport,true,
+LAX,Los Angeles International Airport,"Los Angeles, CA",CA,33.942501,-118.407997,125.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+LBB,Lubbock Preston Smith International Airport,"Lubbock, TX",TX,33.663601,-101.822998,3282.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+LBE,Arnold Palmer Regional Airport,"Latrobe, PA",PA,40.275902,-79.4048,1199.0,medium_airport,true,
+LBF,North Platte Regional Airport Lee Bird Field,"North Platte, NE",NE,41.12620163,-100.6839981,2777.0,medium_airport,true,
+LBL,Liberal Mid-America Regional Airport,"Liberal, KS",KS,37.0442009,-100.9599991,2885.0,medium_airport,true,
+LCH,Lake Charles Regional Airport,"Lake Charles, LA",LA,30.126100540161133,-93.22329711914062,15.0,medium_airport,true,
+LCK,Rickenbacker International Airport,"Columbus, OH",OH,39.813801,-82.927803,744.0,medium_airport,true,
+LEX,Blue Grass Airport,"Lexington, KY",KY,38.035066,-84.606738,979.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+LFT,Lafayette Regional Airport,"Lafayette, LA",LA,30.205299,-91.987602,42.0,medium_airport,true,
+LGA,LaGuardia Airport,"New York, NY",NY,40.777199,-73.872597,21.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+LGB,Long Beach International Airport,"Long Beach, CA",CA,33.816523,-118.149891,60.0,large_airport,true,"Mid-size - stable delays, quick turn"
+LIH,Lihue Airport,"Lihue, HI",HI,21.974393,-159.337146,153.0,large_airport,true,"Mid-size - stable delays, quick turn"
+LIT,Bill & Hillary Clinton National Airport/Adams Field,"Little Rock, AR",AR,34.729222,-92.223591,262.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+LNK,Lincoln Airport,"Lincoln, NE",NE,40.844882,-96.76178,1219.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+LNS,Lancaster Airport,"Lancaster, PA",PA,40.121700286865234,-76.29609680175781,403.0,medium_airport,true,
+LRD,Laredo International Airport,"Laredo, TX",TX,27.5438,-99.461601,508.0,medium_airport,true,
+LSE,La Crosse Regional Airport,"La Crosse, WI",WI,43.879002,-91.256699,655.0,medium_airport,true,
+LWB,Greenbrier Valley Airport,"Lewisburg, WV",WV,37.857914,-80.400438,2302.0,medium_airport,true,
+LWS,Lewiston Nez Perce County Airport,"Lewiston, ID",ID,46.3745002746582,-117.01499938964844,1442.0,medium_airport,true,
+LYH,Lynchburg Regional Airport - Preston Glenn Field,"Lynchburg, VA",VA,37.326698,-79.200401,938.0,medium_airport,true,
+MAF,Midland International Air and Space Port,"Midland/Odessa, TX",TX,31.942499,-102.202003,2871.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+MBS,MBS International Airport,"Saginaw/Bay City/Midland, MI",MI,43.533181,-84.083104,668.0,medium_airport,true,
+MCI,Kansas City International Airport,"Kansas City, MO",MO,39.301699,-94.713893,1026.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+MCO,Orlando International Airport,"Orlando, FL",FL,28.429399490356445,-81.30899810791016,96.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+MCW,Mason City Municipal Airport,"Mason City, IA",IA,43.159801,-93.329716,1213.0,medium_airport,true,
+MDT,Harrisburg International Airport,"Harrisburg, PA",PA,40.192838,-76.762333,310.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+MDW,Chicago Midway International Airport,"Chicago, IL",IL,41.785999,-87.752403,620.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+MEI,Key Field / Meridian Regional Airport,"Meridian, MS",MS,32.3326,-88.7519,297.0,medium_airport,true,
+MEM,Frederick W. Smith International Airport,"Memphis, TN",TN,35.043845,-89.97634,341.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+MFE,McAllen Miller International Airport,"Mission/McAllen/Edinburg, TX",TX,26.176141,-98.237965,107.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+MFR,Rogue Valley International-Medford Airport,"Medford, OR",OR,42.374199,-122.873001,1335.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+MGM,Montgomery Regional (Dannelly Field) Airport,"Montgomery, AL",AL,32.300598,-86.393997,221.0,medium_airport,true,
+MGW,Morgantown Municipal Airport Walter L. (Bill) Hart Field,"Morgantown, WV",WV,39.643305,-79.917598,1248.0,medium_airport,true,
+MHK,Manhattan Regional Airport,"Manhattan/Ft. Riley, KS",KS,39.14099884033203,-96.6707992553711,1057.0,medium_airport,true,
+MHT,Manchester-Boston Regional Airport,"Manchester, NH",NH,42.932598,-71.435699,266.0,medium_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+MIA,Miami International Airport,"Miami, FL",FL,25.796011,-80.289751,8.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+MKE,General Mitchell International Airport,"Milwaukee, WI",WI,42.947201,-87.896599,723.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+MLB,Melbourne Orlando International Airport,"Melbourne, FL",FL,28.102009,-80.641088,33.0,medium_airport,true,
+MLI,Quad City International Airport,"Moline, IL",IL,41.448502,-90.5075,590.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+MLU,Monroe Regional Airport,"Monroe, LA",LA,32.510899,-92.037697,79.0,medium_airport,true,
+MOB,Mobile Regional Airport,"Mobile, AL",AL,30.6912,-88.242798,219.0,medium_airport,true,
+MOT,Minot International Airport,"Minot, ND",ND,48.25801,-101.279123,1716.0,medium_airport,true,
+MQT,Marquette Sawyer Regional Airport,"Marquette, MI",MI,46.351498,-87.395884,1221.0,medium_airport,true,
+MRY,Monterey Regional Airport,"Monterey, CA",CA,36.586777,-121.844183,257.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+MSN,Dane County Regional Truax Field,"Madison, WI",WI,43.1399,-89.337502,887.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+MSO,Missoula Montana Airport,"Missoula, MT",MT,46.915816,-114.091107,3206.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+MSP,Minneapolis–Saint Paul International Airport / Wold–Chamberlain Field,"Minneapolis, MN",MN,44.880081,-93.221741,841.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+MSY,Louis Armstrong New Orleans International Airport,"New Orleans, LA",LA,29.993401,-90.264673,4.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+MTJ,Montrose Regional Airport,"Montrose/Delta, CO",CO,38.5098,-107.893997,5759.0,medium_airport,true,
+MVY,Martha's Vineyard Airport,"Martha's Vineyard, MA",MA,41.3931007385,-70.6143035889,67.0,small_airport,true,
+MYR,Myrtle Beach International Airport,"Myrtle Beach, SC",SC,33.679699,-78.928299,25.0,large_airport,true,"Regional - short-haul mix, few NAS delays"
+OAJ,Albert J Ellis Airport,"Jacksonville/Camp Lejeune, NC",NC,34.829201,-77.612099,94.0,medium_airport,true,
+OAK,Oakland San Francisco Bay Airport,"Oakland, CA",CA,37.720085,-122.221184,9.0,large_airport,true,"Mid-size - stable delays, quick turn"
+OGG,Kahului International Airport,"Kahului, HI",HI,20.896263,-156.431837,54.0,large_airport,true,"Mid-size - stable delays, quick turn"
+OKC,OKC Will Rogers World Airport,"Oklahoma City, OK",OK,35.393388,-97.598248,1295.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+OMA,Eppley Airfield,"Omaha, NE",NE,41.3032,-95.894096,984.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+OME,Nome Airport,"Nome, AK",AK,64.51219940185547,-165.44500732421875,37.0,medium_airport,true,
+ONT,Ontario International Airport,"Ontario, CA",CA,34.056,-117.600998,944.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+ORD,Chicago O'Hare International Airport,"Chicago, IL",IL,41.9786,-87.9048,680.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+ORF,Norfolk International Airport,"Norfolk, VA",VA,36.895341,-76.201,26.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+ORH,Worcester Regional Airport,"Worcester, MA",MA,42.2673,-71.875702,1009.0,medium_airport,true,
+OTH,Southwest Oregon Regional Airport,"North Bend/Coos Bay, OR",OR,43.41709899902344,-124.24600219726562,17.0,medium_airport,true,
+OTZ,Ralph Wien Memorial Airport,"Kotzebue, AK",AK,66.88469696,-162.598999,14.0,medium_airport,true,
+PAE,Seattle Paine Field International Airport,"Everett, WA",WA,47.9063,-122.281998,606.0,medium_airport,true,
+PAH,Barkley Regional Airport,"Paducah, KY",KY,37.06079864501953,-88.7738037109375,410.0,medium_airport,true,
+PBG,Plattsburgh International Airport,"Plattsburgh, NY",NY,44.650902,-73.468102,234.0,medium_airport,true,
+PBI,President Donald J. Trump International Airport,"West Palm Beach/Palm Beach, FL",FL,26.683201,-80.095596,19.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+PDX,Portland International Airport,"Portland, OR",OR,45.588699,-122.598,31.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+PGD,Punta Gorda Airport,"Punta Gorda, FL",FL,26.9202,-81.990501,26.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+PHF,Newport News Williamsburg International Airport,"Newport News/Williamsburg, VA",VA,37.131901,-76.492996,42.0,medium_airport,true,
+PHL,Philadelphia International Airport,"Philadelphia, PA",PA,39.871899,-75.241096,36.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+PHX,Phoenix Sky Harbor International Airport,"Phoenix, AZ",AZ,33.435302,-112.005905,1135.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+PIA,General Wayne A. Downing Peoria International Airport,"Peoria, IL",IL,40.663841,-89.692631,660.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+PIB,Hattiesburg Laurel Regional Airport,"Hattiesburg/Laurel, MS",MS,31.4671,-89.337097,298.0,medium_airport,true,
+PIE,St. Petersburg Clearwater International Airport,"St. Petersburg, FL",FL,27.9102,-82.687401,11.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+PIH,Pocatello Regional Airport,"Pocatello, ID",ID,42.9098014831543,-112.59600067138672,4452.0,medium_airport,true,
+PIR,Pierre Regional Airport,"Pierre, SD",SD,44.38270187,-100.2860031,1744.0,medium_airport,true,
+PIT,Pittsburgh International Airport,"Pittsburgh, PA",PA,40.491501,-80.232903,1203.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+PLN,Pellston Regional Airport of Emmet County Airport,"Pellston, MI",MI,45.57089996,-84.79669952,721.0,medium_airport,true,
+PNS,Pensacola International Airport,"Pensacola, FL",FL,30.472718,-87.186639,121.0,large_airport,true,"Regional - short-haul mix, few NAS delays"
+PPG,Pago Pago International Airport,"Pago Pago, TT",TT,-14.331,-170.710007,32.0,large_airport,true,
+PQI,Presque Isle International Airport,"Presque Isle/Houlton, ME",ME,46.688999,-68.0448,534.0,medium_airport,true,
+PRC,Prescott Regional Airport - Ernest A. Love Field,"Prescott, AZ",AZ,34.653502,-112.419883,5045.0,medium_airport,true,
+PSC,Tri Cities Airport,"Pasco/Kennewick/Richland, WA",WA,46.264702,-119.119003,410.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+PSE,Mercedita International Airport,"Ponce, PR",PR,18.008301,-66.563004,29.0,medium_airport,true,
+PSG,Petersburg James A Johnson Airport,"Petersburg, AK",AK,56.80170059,-132.9450073,111.0,medium_airport,true,
+PSM,Portsmouth International Airport at Pease,"Portsmouth, NH",NH,43.0779,-70.823303,100.0,medium_airport,true,
+PSP,Palm Springs International Airport,"Palm Springs, CA",CA,33.8297,-116.507004,477.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+PVD,Rhode Island T. F. Green International Airport,"Providence, RI",RI,41.725038,-71.425668,55.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+PVU,Provo Municipal Airport,"Provo, UT",UT,40.218894,-111.722445,4497.0,medium_airport,true,
+PWM,Portland International Jetport,"Portland, ME",ME,43.646198,-70.309303,76.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+RAP,Rapid City Regional Airport,"Rapid City, SD",SD,44.0452995300293,-103.05699920654297,3204.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+RDD,Redding Municipal Airport,"Redding, CA",CA,40.50899887,-122.2929993,505.0,medium_airport,true,
+RDM,Roberts Field,"Bend/Redmond, OR",OR,44.254101,-121.150002,3080.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+RDU,Raleigh-Durham International Airport,"Raleigh/Durham, NC",NC,35.878659,-78.7873,435.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+RFD,Chicago Rockford International Airport,"Rockford, IL",IL,42.1954,-89.097198,742.0,medium_airport,true,
+RHI,Rhinelander Oneida County Airport,"Rhinelander, WI",WI,45.63119888305664,-89.46749877929688,1624.0,medium_airport,true,
+RIC,Richmond International Airport,"Richmond, VA",VA,37.505199,-77.319702,167.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+RIW,Central Wyoming Regional Airport,"Riverton/Lander, WY",WY,43.064201,-108.459999,5525.0,medium_airport,true,
+RKS,Southwest Wyoming Regional Airport,"Rock Springs, WY",WY,41.5942,-109.065001,6764.0,medium_airport,true,
+RNO,Reno Tahoe International Airport,"Reno, NV",NV,39.4991,-119.767998,4415.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+ROA,Roanoke–Blacksburg Regional Airport,"Roanoke, VA",VA,37.3255,-79.975403,1175.0,medium_airport,true,
+ROC,Frederick Douglass Greater Rochester International Airport,"Rochester, NY",NY,43.1189,-77.672401,559.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+ROW,Roswell Air Center Airport,"Roswell, NM",NM,33.301601,-104.530998,3671.0,medium_airport,true,
+RST,Rochester International Airport,"Rochester, MN",MN,43.908298,-92.5,1317.0,medium_airport,true,
+RSW,Southwest Florida International Airport,"Fort Myers, FL",FL,26.534685,-81.752816,30.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+SAF,Santa Fe Municipal Airport,"Santa Fe, NM",NM,35.6171,-106.088997,6348.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+SAN,San Diego International Airport,"San Diego, CA",CA,32.733601,-117.190002,17.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+SAT,San Antonio International Airport,"San Antonio, TX",TX,29.533701,-98.469803,809.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+SAV,Savannah Hilton Head International Airport,"Savannah, GA",GA,32.126591,-81.19998,50.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+SBA,Santa Barbara Municipal Airport,"Santa Barbara, CA",CA,34.426201,-119.839996,13.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+SBN,South Bend International Airport,"South Bend, IN",IN,41.708304,-86.316922,799.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+SBP,San Luis County Regional Airport,"San Luis Obispo, CA",CA,35.236801147499996,-120.641998291,212.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+SCC,Deadhorse Airport,"Deadhorse, AK",AK,70.19470215,-148.4649963,65.0,medium_airport,true,
+SCE,State College Regional Airport,"State College, PA",PA,40.849374,-77.84852,1239.0,medium_airport,true,
+SCK,Stockton Metropolitan Airport,"Stockton, CA",CA,37.893279,-121.238079,33.0,medium_airport,true,
+SDF,Louisville Muhammad Ali International Airport,"Louisville, KY",KY,38.1706,-85.735076,501.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+SEA,Seattle–Tacoma International Airport,"Seattle, WA",WA,47.447943,-122.310276,433.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+SFB,Orlando Sanford International Airport,"Sanford, FL",FL,28.774277,-81.234626,55.0,large_airport,true,"Regional - volatile delays, delay-prone"
+SFO,San Francisco International Airport,"San Francisco, CA",CA,37.619806,-122.374821,13.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+SGF,Springfield Branson National Airport,"Springfield, MO",MO,37.245047,-93.388596,1268.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+SGU,St George Regional Airport,"St. George, UT",UT,37.036389,-113.510306,2941.0,medium_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+SHD,Shenandoah Valley Regional Airport,"Staunton, VA",VA,38.263802,-78.8964,1201.0,medium_airport,true,
+SHR,Sheridan County Airport,"Sheridan, WY",WY,44.76919937133789,-106.9800033569336,4021.0,medium_airport,true,
+SHV,Shreveport Regional Airport,"Shreveport, LA",LA,32.444747,-93.826741,258.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+SIT,Sitka Rocky Gutierrez Airport,"Sitka, AK",AK,57.04710006713867,-135.36199951171875,21.0,medium_airport,true,
+SJC,Mineta San Jose International Airport,"San Jose, CA",CA,37.362452,-121.929188,62.0,large_airport,true,"Mid-size - stable delays, quick turn"
+SJT,San Angelo Regional Mathis Field,"San Angelo, TX",TX,31.35770034790039,-100.49600219726562,1919.0,medium_airport,true,
+SJU,Luis Munoz Marin International Airport,"San Juan, PR",PR,18.4394,-66.001801,9.0,large_airport,true,"Mid-size - stable delays, quick turn"
+SLC,Salt Lake City International Airport,"Salt Lake City, UT",UT,40.78886,-111.979866,4227.0,large_airport,true,"Major hub - evening-heavy bank, long taxi-out / congested"
+SLN,Salina Municipal Airport,"Salina, KS",KS,38.79100036621094,-97.6521987915039,1288.0,medium_airport,true,
+SMF,Sacramento International Airport,"Sacramento, CA",CA,38.6954,-121.591003,27.0,large_airport,true,"Mid-size - stable delays, quick turn"
+SMX,Santa Maria Public Airport Captain G Allan Hancock Field,"Santa Maria, CA",CA,34.898899,-120.457001,261.0,medium_airport,true,
+SNA,John Wayne Orange County International Airport,"Santa Ana, CA",CA,33.675063,-117.869281,56.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+SPI,Abraham Lincoln Capital Airport,"Springfield, IL",IL,39.844101,-89.677902,598.0,medium_airport,true,
+SPN,Saipan International Airport,"Saipan, TT",TT,15.119384,145.728848,215.0,medium_airport,true,
+SPS,Wichita Falls Municipal Airport / Sheppard Air Force Base,"Wichita Falls, TX",TX,33.9888,-98.491898,1019.0,medium_airport,true,
+SRQ,Sarasota Bradenton International Airport,"Sarasota/Bradenton, FL",FL,27.394631,-82.554359,30.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+STC,Saint Cloud Regional Airport,"St. Cloud, MN",MN,45.5466,-94.059898,1031.0,medium_airport,true,
+STL,St. Louis Lambert International Airport,"St. Louis, MO",MO,38.748697,-90.370003,618.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+STS,Charles M. Schulz Sonoma County Airport,"Santa Rosa, CA",CA,38.50899887,-122.8130035,128.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+STT,Cyril E. King Airport,"Charlotte Amalie, VI",VI,18.337091,-64.977251,23.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+STX,Henry E. Rohlsen Airport,"Christiansted, VI",VI,17.701413,-64.802608,74.0,medium_airport,true,
+SUN,Friedman Memorial Airport,"Sun Valley/Hailey/Ketchum, ID",ID,43.50439835,-114.2959976,5318.0,medium_airport,true,
+SUX,Sioux Gateway Airport / Brigadier General Bud Day Field,"Sioux City, IA",IA,42.397605,-96.382237,1098.0,medium_airport,true,
+SWF,New York Stewart International Airport,"Newburgh/Poughkeepsie, NY",NY,41.50421,-74.108901,491.0,medium_airport,true,
+SWO,Stillwater Regional Airport,"Stillwater, OK",OK,36.162132,-97.085581,1000.0,medium_airport,true,
+SYR,Syracuse Hancock International Airport,"Syracuse, NY",NY,43.11119842529297,-76.1063003540039,421.0,large_airport,true,"Regional - volatile delays, delay-prone"
+TLH,Tallahassee International Airport,"Tallahassee, FL",FL,30.401209,-84.35433,81.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+TOL,Eugene F. Kranz Toledo Express Airport,"Toledo, OH",OH,41.5868,-83.8078,683.0,medium_airport,true,
+TPA,Tampa International Airport,"Tampa, FL",FL,27.9755,-82.533203,26.0,large_airport,true,"Mid-size - ATC/NAS-constrained, low weather exposure"
+TRI,Tri-Cities Regional TN/VA Airport,"Bristol/Johnson City/Kingsport, TN",TN,36.475201,-82.407401,1519.0,medium_airport,true,
+TTN,Trenton Mercer Airport,"Trenton, NJ",NJ,40.276699,-74.813499,213.0,medium_airport,true,
+TUL,Tulsa International Airport,"Tulsa, OK",OK,36.197084,-95.886225,677.0,large_airport,true,"Regional - short-haul mix, few NAS delays"
+TUS,Tucson International Airport,"Tucson, AZ",AZ,32.115004,-110.938053,2643.0,large_airport,true,"Regional - few knock-on delays, morning-heavy bank"
+TVC,Cherry Capital Airport,"Traverse City, MI",MI,44.741402,-85.582199,624.0,medium_airport,true,"Regional - volatile delays, delay-prone"
+TWF,Joslin Field Magic Valley Regional Airport,"Twin Falls, ID",ID,42.4818,-114.487999,4154.0,medium_airport,true,
+TXK,Texarkana Regional Airport (Webb Field),"Texarkana, AR",AR,33.453701,-93.990997,390.0,medium_airport,true,
+TYR,Tyler Pounds Regional Airport,"Tyler, TX",TX,32.35409927368164,-95.40239715576172,544.0,medium_airport,true,
+TYS,McGhee Tyson Airport,"Knoxville, TN",TN,35.811001,-83.994003,981.0,large_airport,true,"Regional - short-haul mix, few NAS delays"
+USA,Concord-Padgett Regional Airport,"Concord, NC",NC,35.387798,-80.709099,705.0,medium_airport,true,
+VCT,Victoria Regional Airport,"Victoria, TX",TX,28.85260009765625,-96.91850280761719,115.0,medium_airport,true,
+VPS,Destin-Fort Walton Beach Airport,"Valparaiso, FL",FL,30.481315,-86.515839,87.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+VRB,Vero Beach Regional Airport,"Vero Beach, FL",FL,27.6556,-80.417901,24.0,medium_airport,true,
+WRG,Wrangell Airport,"Wrangell, AK",AK,56.48429871,-132.3699951,49.0,medium_airport,true,
+WYS,Yellowstone Airport,"West Yellowstone, MT",MT,44.6884,-111.117996,6649.0,medium_airport,true,
+XNA,Northwest Arkansas National Airport,"Fayetteville, AR",AR,36.281898,-94.306801,1287.0,medium_airport,true,"Regional - short-haul mix, few NAS delays"
+XWA,Williston Basin International Airport,"Williston, ND",ND,48.260863,-103.75116,2344.0,medium_airport,true,
+YAK,Yakutat Airport,"Yakutat, AK",AK,59.508717,-139.660435,33.0,medium_airport,true,
+YUM,Yuma International Airport / Marine Corps Air Station Yuma,"Yuma, AZ",AZ,32.650938,-114.609375,213.0,medium_airport,true,

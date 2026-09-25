@@ -1,0 +1,151 @@
+/// Daily network series with STL residual z-scores and flags
+table anomalies_network
+	lineageTag: dce6df38-196e-538f-ba35-79427d24f8a8
+
+	column flight_date
+		dataType: dateTime
+		lineageTag: c65ecddb-b719-5720-a559-e6dac5c4f60f
+		summarizeBy: none
+		sourceColumn: flight_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column scheduled_flights
+		dataType: int64
+		formatString: 0
+		lineageTag: f67d2eed-c11f-52b1-9463-3c81fa37895d
+		summarizeBy: none
+		sourceColumn: scheduled_flights
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_delay_rate
+		dataType: double
+		lineageTag: 51584eac-db2e-505c-b4d3-8edc9a71581e
+		summarizeBy: sum
+		sourceColumn: arr_delay_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancellation_rate
+		dataType: double
+		lineageTag: 72b36bf8-b8db-52eb-96bd-c9f5d3df860e
+		summarizeBy: sum
+		sourceColumn: cancellation_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_arr_delay_min
+		dataType: double
+		lineageTag: 4c9555a4-5ab0-545c-9ca3-4e8608e2d4e4
+		summarizeBy: sum
+		sourceColumn: avg_arr_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column weather_delay_min
+		dataType: double
+		lineageTag: 50ba8b49-7c1d-5903-868e-c9e7d6c433b8
+		summarizeBy: sum
+		sourceColumn: weather_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column nas_delay_min
+		dataType: double
+		lineageTag: 3a4485d6-dee2-5240-bc03-82593f69e2ff
+		summarizeBy: sum
+		sourceColumn: nas_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_delay_min
+		dataType: double
+		lineageTag: e424459a-02f4-5310-bc28-20a260a8d922
+		summarizeBy: sum
+		sourceColumn: carrier_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column late_aircraft_delay_min
+		dataType: double
+		lineageTag: 6c225b15-3198-5cad-8867-de335db1b00c
+		summarizeBy: sum
+		sourceColumn: late_aircraft_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_delay_rate_trend
+		dataType: double
+		lineageTag: 7c33e708-132d-559c-b1f8-5c23e666dd5c
+		summarizeBy: sum
+		sourceColumn: arr_delay_rate_trend
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_delay_rate_resid
+		dataType: double
+		lineageTag: 1a23c9eb-8f8f-50bb-b820-5579acfd73fa
+		summarizeBy: sum
+		sourceColumn: arr_delay_rate_resid
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_delay_rate_z
+		dataType: double
+		lineageTag: 41e6ef11-92d9-5be2-8136-3ce3de73baac
+		summarizeBy: sum
+		sourceColumn: arr_delay_rate_z
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancellation_rate_trend
+		dataType: double
+		lineageTag: 1eb75c6a-25a0-5857-a98f-d0a32e1e67a3
+		summarizeBy: sum
+		sourceColumn: cancellation_rate_trend
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancellation_rate_resid
+		dataType: double
+		lineageTag: f49ff38a-a5a1-5980-9c56-d69176e056a5
+		summarizeBy: sum
+		sourceColumn: cancellation_rate_resid
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancellation_rate_z
+		dataType: double
+		lineageTag: a02ffd10-c1fe-532c-9014-4a7ddd2d374a
+		summarizeBy: sum
+		sourceColumn: cancellation_rate_z
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_anomaly
+		dataType: int64
+		formatString: 0
+		lineageTag: 21beab64-b884-5ec4-9cf7-0f309d414c05
+		summarizeBy: none
+		sourceColumn: is_anomaly
+
+		annotation SummarizationSetBy = Automatic
+
+	column anomaly_driver
+		dataType: string
+		lineageTag: b3572d66-0e7a-5405-82dc-5d2535dbffa6
+		summarizeBy: none
+		sourceColumn: anomaly_driver
+
+		annotation SummarizationSetBy = Automatic
+
+	partition anomalies_network = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\anomalies_network.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"flight_date", type date}, {"scheduled_flights", Int64.Type}, {"arr_delay_rate", type number}, {"cancellation_rate", type number}, {"avg_arr_delay_min", type number}, {"weather_delay_min", type number}, {"nas_delay_min", type number}, {"carrier_delay_min", type number}, {"late_aircraft_delay_min", type number}, {"arr_delay_rate_trend", type number}, {"arr_delay_rate_resid", type number}, {"arr_delay_rate_z", type number}, {"cancellation_rate_trend", type number}, {"cancellation_rate_resid", type number}, {"cancellation_rate_z", type number}, {"is_anomaly", Int64.Type}, {"anomaly_driver", type text}} )
+				in
+				    Typed

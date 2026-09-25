@@ -1,0 +1,111 @@
+/// Airport-day Isolation Forest scores (30 busiest airports)
+table anomalies_airport
+	lineageTag: 9b9d2288-cfcb-59a5-bd0a-04a16454a104
+
+	column flight_date
+		dataType: dateTime
+		lineageTag: 0db86435-ee5d-55c9-9a77-2f1658046e9c
+		summarizeBy: none
+		sourceColumn: flight_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column airport_code
+		dataType: string
+		lineageTag: 8876b657-0e93-5af8-ab86-b3e0d46d069b
+		summarizeBy: none
+		sourceColumn: airport_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column scheduled_departures
+		dataType: int64
+		formatString: 0
+		lineageTag: 11ce7ac6-15f5-52d1-b0ef-e93524fdbcec
+		summarizeBy: none
+		sourceColumn: scheduled_departures
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_delay_rate
+		dataType: double
+		lineageTag: c5e62c55-8cb0-5cfe-805e-977a2c7bea61
+		summarizeBy: sum
+		sourceColumn: arr_delay_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column dep_delay_rate
+		dataType: double
+		lineageTag: 3bc5ad17-3af4-528d-90bb-6d495894aece
+		summarizeBy: sum
+		sourceColumn: dep_delay_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancellation_rate
+		dataType: double
+		lineageTag: 2fa3194a-f482-5a2c-ba0b-0cda14f5dd62
+		summarizeBy: sum
+		sourceColumn: cancellation_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_dep_delay_min
+		dataType: double
+		lineageTag: d49adf81-c626-5a4b-b3af-381c89111031
+		summarizeBy: sum
+		sourceColumn: avg_dep_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_taxi_out_min
+		dataType: double
+		lineageTag: ee8cb3b2-4cbb-5a53-8375-2bc396f027e1
+		summarizeBy: sum
+		sourceColumn: avg_taxi_out_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column weather_share
+		dataType: double
+		lineageTag: fd8ab6f6-2076-55bd-9c12-9779c3a2d7c9
+		summarizeBy: sum
+		sourceColumn: weather_share
+
+		annotation SummarizationSetBy = Automatic
+
+	column volume_ratio
+		dataType: double
+		lineageTag: 1bc8bc9f-4a57-52ca-bf32-4de1cedc5cd1
+		summarizeBy: sum
+		sourceColumn: volume_ratio
+
+		annotation SummarizationSetBy = Automatic
+
+	column anomaly_score
+		dataType: double
+		lineageTag: 904cdc7f-1816-5899-affe-d4954e034d9f
+		summarizeBy: sum
+		sourceColumn: anomaly_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_anomaly
+		dataType: int64
+		formatString: 0
+		lineageTag: 891798b3-5fcc-585b-9527-4cb1f7c5f101
+		summarizeBy: none
+		sourceColumn: is_anomaly
+
+		annotation SummarizationSetBy = Automatic
+
+	partition anomalies_airport = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\anomalies_airport.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"flight_date", type date}, {"airport_code", type text}, {"scheduled_departures", Int64.Type}, {"arr_delay_rate", type number}, {"dep_delay_rate", type number}, {"cancellation_rate", type number}, {"avg_dep_delay_min", type number}, {"avg_taxi_out_min", type number}, {"weather_share", type number}, {"volume_ratio", type number}, {"anomaly_score", type number}, {"is_anomaly", Int64.Type}} )
+				in
+				    Typed

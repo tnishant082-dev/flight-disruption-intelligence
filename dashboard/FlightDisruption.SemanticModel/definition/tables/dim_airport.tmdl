@@ -1,0 +1,93 @@
+/// Airports with OurAirports metadata and ops segment
+table dim_airport
+	lineageTag: d99c4e95-57b7-57fd-96aa-1a64126ca727
+
+	column airport_code
+		dataType: string
+		lineageTag: 6a36e0ae-4bd3-5527-94ea-3cb10df522d7
+		summarizeBy: none
+		sourceColumn: airport_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column airport_name
+		dataType: string
+		lineageTag: ad2be207-8d3b-53a3-8379-a5e9b3e4f45f
+		summarizeBy: none
+		sourceColumn: airport_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: da6916c2-f74b-5bda-bcce-934e8a37b2db
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 2842ddaf-ba48-5c03-95ff-0296f0f393ec
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: 06461808-ab16-53a1-bb7b-d4d699da4d10
+		summarizeBy: sum
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column longitude
+		dataType: double
+		lineageTag: 45a01368-3e90-59fc-a6fe-052252e47dd1
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column elevation_ft
+		dataType: double
+		lineageTag: 80fbc3d7-82de-57f4-b88a-36984ee0fb02
+		summarizeBy: sum
+		sourceColumn: elevation_ft
+
+		annotation SummarizationSetBy = Automatic
+
+	column airport_type
+		dataType: string
+		lineageTag: 3b1a35a4-c82c-5c07-b038-95d44fe366e7
+		summarizeBy: none
+		sourceColumn: airport_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column has_ourairports_match
+		dataType: boolean
+		lineageTag: 1f11c289-edb1-5694-bef7-e889420174ac
+		summarizeBy: none
+		sourceColumn: has_ourairports_match
+
+		annotation SummarizationSetBy = Automatic
+
+	column ops_segment
+		dataType: string
+		lineageTag: 03156343-2a87-52ee-8a35-0c46434031ac
+		summarizeBy: none
+		sourceColumn: ops_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_airport = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\dim_airport.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"airport_code", type text}, {"airport_name", type text}, {"city", type text}, {"state", type text}, {"latitude", type number}, {"longitude", type number}, {"elevation_ft", type number}, {"airport_type", type text}, {"has_ourairports_match", type logical}, {"ops_segment", type text}} )
+				in
+				    Typed

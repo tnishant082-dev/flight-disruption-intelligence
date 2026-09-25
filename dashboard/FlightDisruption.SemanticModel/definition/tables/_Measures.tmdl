@@ -1,0 +1,217 @@
+table _Measures
+	lineageTag: f6405b38-51c9-5343-96c0-22041078a04d
+
+	/// Scheduled flights
+	measure 'Flights' = COUNTROWS ( fact_flights )
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 3c567770-be54-5809-9fd2-f25898f62362
+
+	/// Not cancelled or diverted
+	measure 'Completed Flights' = SUM ( fact_flights[completed] )
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 42bbb08a-4927-561d-9694-36d8a72d7eac
+
+	/// Arrived 15+ min late
+	measure 'Delayed Flights' = SUM ( fact_flights[arr_del15] )
+		formatString: #,0
+		displayFolder: Punctuality
+		lineageTag: 7327de88-b2b3-5b9b-b2d8-202904f7d426
+
+	/// Completed flights arriving < 15 min late
+	measure 'On-Time %' = DIVIDE ( [Completed Flights] - [Delayed Flights], [Completed Flights] )
+		formatString: 0.0%
+		displayFolder: Punctuality
+		lineageTag: e7741985-5c40-570f-a920-c83b04b2dae8
+
+	/// Completed flights arriving 15+ min late
+	measure 'Delay Rate %' = DIVIDE ( [Delayed Flights], [Completed Flights] )
+		formatString: 0.0%
+		displayFolder: Punctuality
+		lineageTag: f772a90b-2aa9-53ba-a4f4-aff94423252c
+
+	/// Mean arrival delay, early arrivals negative
+	measure 'Avg Arrival Delay (min)' = CALCULATE ( AVERAGE ( fact_flights[arr_delay_min] ), fact_flights[completed] = 1 )
+		formatString: 0.0
+		displayFolder: Punctuality
+		lineageTag: e40d1550-2d0a-5671-ac91-acf25a06b3fa
+
+	measure 'Avg Delay When Late (min)' = CALCULATE ( AVERAGE ( fact_flights[arr_delay_min] ), fact_flights[arr_del15] = 1 )
+		formatString: 0.0
+		displayFolder: Punctuality
+		lineageTag: ec171651-775b-5546-80fb-fedc58df41cc
+
+	measure 'Dep Delay Rate %' = DIVIDE ( SUM ( fact_flights[dep_del15] ), [Flights] - [Cancelled Flights] )
+		formatString: 0.0%
+		displayFolder: Punctuality
+		lineageTag: c64b631e-cfcd-5ca8-a317-f9847df59ccf
+
+	measure 'Avg Taxi-Out (min)' = AVERAGE ( fact_flights[taxi_out_min] )
+		formatString: 0.0
+		displayFolder: Punctuality
+		lineageTag: 68d8f7c9-e8e4-5f7d-8b98-70c9a0c0554c
+
+	measure 'Cancelled Flights' = SUM ( fact_flights[cancelled] )
+		formatString: #,0
+		displayFolder: Disruption
+		lineageTag: b7d0b3ff-28bd-5d80-be3a-d6ba43950a82
+
+	measure 'Cancellation Rate %' = DIVIDE ( [Cancelled Flights], [Flights] )
+		formatString: 0.00%
+		displayFolder: Disruption
+		lineageTag: 6a12b213-db92-57f3-92c5-b9e541a9e0e9
+
+	measure 'Diversion Rate %' = DIVIDE ( SUM ( fact_flights[diverted] ), [Flights] )
+		formatString: 0.00%
+		displayFolder: Disruption
+		lineageTag: e4159f1a-b940-5ddb-8f85-8dbd774a62e7
+
+	measure 'Carrier Delay Min' = SUM ( fact_flights[carrier_delay_min] )
+		formatString: #,0
+		displayFolder: Delay causes
+		lineageTag: 9e922611-7fd1-5d2c-a44e-90d10ac86fe4
+
+	measure 'Weather Delay Min' = SUM ( fact_flights[weather_delay_min] )
+		formatString: #,0
+		displayFolder: Delay causes
+		lineageTag: d6eb4d2a-285c-5cf8-8921-e0263cc8ce45
+
+	measure 'NAS Delay Min' = SUM ( fact_flights[nas_delay_min] )
+		formatString: #,0
+		displayFolder: Delay causes
+		lineageTag: a94d9d3a-fe65-5923-b5e7-7b4699021cb4
+
+	measure 'Security Delay Min' = SUM ( fact_flights[security_delay_min] )
+		formatString: #,0
+		displayFolder: Delay causes
+		lineageTag: 83911975-3d24-525c-91c5-d4ddc0bc721f
+
+	measure 'Late Aircraft Delay Min' = SUM ( fact_flights[late_aircraft_delay_min] )
+		formatString: #,0
+		displayFolder: Delay causes
+		lineageTag: 3967929b-1470-55d5-979d-22301d8cb870
+
+	measure 'Total Cause Min' = [Carrier Delay Min] + [Weather Delay Min] + [NAS Delay Min] + [Security Delay Min] + [Late Aircraft Delay Min]
+		formatString: #,0
+		displayFolder: Delay causes
+		lineageTag: 128b1663-566f-511a-b4bc-47767b49c059
+
+	/// Knock-on delay share
+	measure 'Late Aircraft Share %' = DIVIDE ( [Late Aircraft Delay Min], [Total Cause Min] )
+		formatString: 0.0%
+		displayFolder: Delay causes
+		lineageTag: 46f7eaa4-ead3-5f03-afc1-2e844c1abe0e
+
+	measure 'Weather Share %' = DIVIDE ( [Weather Delay Min], [Total Cause Min] )
+		formatString: 0.0%
+		displayFolder: Delay causes
+		lineageTag: 048569e3-f382-5a43-944f-b59c13b9f746
+
+	measure 'Carrier Share %' = DIVIDE ( [Carrier Delay Min], [Total Cause Min] )
+		formatString: 0.0%
+		displayFolder: Delay causes
+		lineageTag: bd4ed3a8-5f16-513b-a719-d40e07fe7bde
+
+	measure 'NAS Share %' = DIVIDE ( [NAS Delay Min], [Total Cause Min] )
+		formatString: 0.0%
+		displayFolder: Delay causes
+		lineageTag: 0f6b3c34-8abe-503e-809b-f2e871a2eeb6
+
+	/// Previous month
+	measure 'On-Time % PM' = CALCULATE ( [On-Time %], DATEADD ( dim_date[date], -1, MONTH ) )
+		formatString: 0.0%
+		displayFolder: Time intelligence
+		lineageTag: ae4e42ac-1bd6-54fa-9b8d-41e787e4ff76
+
+	measure 'On-Time % MoM (pp)' = IF ( NOT ISBLANK ( [On-Time % PM] ), ( [On-Time %] - [On-Time % PM] ) * 100 )
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Time intelligence
+		lineageTag: bc7beafb-b079-53f3-96c7-674ed0cc4551
+
+	measure 'Flights MoM %' = VAR pm = CALCULATE ( [Flights], DATEADD ( dim_date[date], -1, MONTH ) ) RETURN DIVIDE ( [Flights] - pm, pm )
+		formatString: +0.0%;-0.0%
+		displayFolder: Time intelligence
+		lineageTag: 006f1367-4ec6-5ffe-b87f-e40f94c4bfae
+
+	measure 'Carrier OTP Rank' = IF ( HASONEVALUE ( dim_carrier[carrier_name] ), RANKX ( ALL ( dim_carrier[carrier_name] ), [On-Time %], , DESC ) )
+		formatString: 0
+		displayFolder: Ranking
+		lineageTag: 4ff93f8d-37b1-566b-8ac1-e2912ae38e70
+
+	measure 'Route OTP vs Network (pp)' = ( [On-Time %] - CALCULATE ( [On-Time %], ALL ( dim_route ), ALL ( dim_airport ) ) ) * 100
+		formatString: +0.0;-0.0
+		displayFolder: Ranking
+		lineageTag: cdf90fbc-3329-576d-83f7-959d6ac01b3c
+
+	/// Test window flights with model scores
+	measure 'Scored Flights' = COUNTROWS ( fact_flight_scores )
+		formatString: #,0
+		displayFolder: ML scores
+		lineageTag: 3162c4d4-a77f-5167-91e4-0413cd4086b9
+
+	/// Mean calibrated P(arrival 15+ min late)
+	measure 'Avg Predicted Delay Risk' = AVERAGE ( fact_flight_scores[delay_prob] )
+		formatString: 0.0%
+		displayFolder: ML scores
+		lineageTag: 11963a10-7ef0-54d4-9040-753f0394358d
+
+	measure 'Observed Delay Rate (Scored)' = AVERAGE ( fact_flight_scores[arr_del15] )
+		formatString: 0.0%
+		displayFolder: ML scores
+		lineageTag: c2b0105e-644b-56fc-9297-42ad6cc47393
+
+	/// Negative = model under-predicts
+	measure 'Calibration Gap (pp)' = ( [Avg Predicted Delay Risk] - [Observed Delay Rate (Scored)] ) * 100
+		formatString: +0.0;-0.0
+		displayFolder: ML scores
+		lineageTag: 17d646a8-d23f-5133-b033-12b4eb9849f4
+
+	/// Calibrated risk >= 45%
+	measure 'High-Risk Flights' = CALCULATE ( COUNTROWS ( fact_flight_scores ), fact_flight_scores[delay_prob] >= 0.45 )
+		formatString: #,0
+		displayFolder: ML scores
+		lineageTag: 01d545e0-1360-5d6f-9a15-2f0ed276b7d1
+
+	/// Share of high-risk flights that were delayed
+	measure 'High-Risk Hit Rate' = CALCULATE ( AVERAGE ( fact_flight_scores[arr_del15] ), fact_flight_scores[delay_prob] >= 0.45 )
+		formatString: 0.0%
+		displayFolder: ML scores
+		lineageTag: f54ff57d-dd1e-5fa3-96ac-11c4f2255134
+
+	/// Precision at the F1-optimal threshold
+	measure 'Flagged Precision' = CALCULATE ( AVERAGE ( fact_flight_scores[arr_del15] ), fact_flight_scores[delay_pred] = 1 )
+		formatString: 0.0%
+		displayFolder: ML scores
+		lineageTag: efe3fb90-ba3e-5c80-b55e-a917dab4f753
+
+	measure 'Avg P90 Delay (min)' = AVERAGE ( fact_flight_scores[delay_p90] )
+		formatString: 0.0
+		displayFolder: ML scores
+		lineageTag: b4570f90-b27f-54ab-8255-e71fa788d50d
+
+	measure 'Avg Cancel Risk' = AVERAGE ( fact_flight_scores[cancel_prob] )
+		formatString: 0.00%
+		displayFolder: ML scores
+		lineageTag: 9c062eb0-7cb3-50fe-ae9f-5982082e4542
+
+	/// STL-flagged network days
+	measure 'Anomaly Days' = CALCULATE ( COUNTROWS ( anomalies_network ), anomalies_network[is_anomaly] = 1 )
+		formatString: 0
+		displayFolder: Disruption
+		lineageTag: 9d861680-078e-5823-afa9-192ffaf4caa5
+
+	column Value
+		dataType: string
+		isHidden
+		lineageTag: 0c7f98f6-a6dd-5d82-a2a9-5cbcaef35045
+		summarizeBy: none
+		sourceColumn: Value
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table ( type table [ Value = text ], {} )
+				in
+				    Source

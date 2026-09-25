@@ -1,0 +1,46 @@
+/// Calibration table: predicted risk band vs observed delay rate
+table score_risk_bands
+	lineageTag: 61087a77-be55-5043-af81-d208fe1f9a23
+
+	column risk_band
+		dataType: string
+		lineageTag: f8922662-2ebd-5f02-ace5-39a880a9bde2
+		summarizeBy: none
+		sourceColumn: risk_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column flights
+		dataType: int64
+		formatString: 0
+		lineageTag: 69159ac0-39be-586e-9eee-c32f28e64e32
+		summarizeBy: none
+		sourceColumn: flights
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_predicted
+		dataType: double
+		lineageTag: 52c82299-c7fb-5edc-b8d2-64892da9048e
+		summarizeBy: sum
+		sourceColumn: mean_predicted
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_rate
+		dataType: double
+		lineageTag: de753234-53b2-550e-bcaa-ab60bcd82e10
+		summarizeBy: sum
+		sourceColumn: observed_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_risk_bands = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\score_risk_bands.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"risk_band", type text}, {"flights", Int64.Type}, {"mean_predicted", type number}, {"observed_rate", type number}} )
+				in
+				    Typed

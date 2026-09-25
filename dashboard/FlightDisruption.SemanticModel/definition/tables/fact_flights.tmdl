@@ -1,0 +1,220 @@
+/// One row per scheduled flight, Aug 2025 - Jul 2026 (7.04M rows; built by make powerbi)
+table fact_flights
+	lineageTag: e88f76d1-ea27-5402-b397-59af55430300
+
+	column flight_id
+		dataType: string
+		lineageTag: 3c841a6d-209b-5b59-94d4-8c9cad91d53e
+		summarizeBy: none
+		sourceColumn: flight_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d90cbe80-066b-5c65-8c35-2226bb9be570
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_code
+		dataType: string
+		lineageTag: 525c80c8-d740-5cce-a7ac-849df76586be
+		summarizeBy: none
+		sourceColumn: carrier_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column origin_airport
+		dataType: string
+		lineageTag: 2486e19c-2d9e-54bb-bfea-526ba549135c
+		summarizeBy: none
+		sourceColumn: origin_airport
+
+		annotation SummarizationSetBy = Automatic
+
+	column dest_airport
+		dataType: string
+		lineageTag: 71e32530-ae02-58ad-927c-b38d6b37fd69
+		summarizeBy: none
+		sourceColumn: dest_airport
+
+		annotation SummarizationSetBy = Automatic
+
+	column route
+		dataType: string
+		lineageTag: b9554c07-6a99-55a0-ae08-fc986574d65d
+		summarizeBy: none
+		sourceColumn: route
+
+		annotation SummarizationSetBy = Automatic
+
+	column flight_number
+		dataType: string
+		lineageTag: b9373d4b-4676-50c5-aad1-a2d6a0335704
+		summarizeBy: none
+		sourceColumn: flight_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column dep_hour
+		dataType: int64
+		formatString: 0
+		lineageTag: 78a6dd70-8479-5c07-a129-26442957f5af
+		summarizeBy: none
+		sourceColumn: dep_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column crs_dep_hhmm
+		dataType: int64
+		formatString: 0
+		lineageTag: a923ca6c-a6d2-5172-9568-9e31cc0770ea
+		summarizeBy: none
+		sourceColumn: crs_dep_hhmm
+
+		annotation SummarizationSetBy = Automatic
+
+	column distance_mi
+		dataType: double
+		lineageTag: 23233a90-4861-59b5-bcf7-a85d96872708
+		summarizeBy: sum
+		sourceColumn: distance_mi
+
+		annotation SummarizationSetBy = Automatic
+
+	column crs_elapsed_min
+		dataType: double
+		lineageTag: 3915850d-3dc1-5a94-b0b4-7ecf234045db
+		summarizeBy: sum
+		sourceColumn: crs_elapsed_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column completed
+		dataType: int64
+		formatString: 0
+		lineageTag: 63161e28-60ed-52bc-b5b9-b9895075ec1c
+		summarizeBy: none
+		sourceColumn: completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancelled
+		dataType: int64
+		formatString: 0
+		lineageTag: 69a77f5e-ad3e-53de-9339-753e32ece3ad
+		summarizeBy: none
+		sourceColumn: cancelled
+
+		annotation SummarizationSetBy = Automatic
+
+	column diverted
+		dataType: int64
+		formatString: 0
+		lineageTag: e898749e-770c-5ed6-8ef9-6a5f0d51771f
+		summarizeBy: none
+		sourceColumn: diverted
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_del15
+		dataType: int64
+		formatString: 0
+		lineageTag: aeb4eaac-a7c7-5214-8064-f804dfa34e15
+		summarizeBy: none
+		sourceColumn: arr_del15
+
+		annotation SummarizationSetBy = Automatic
+
+	column dep_del15
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cd69cca-9420-5f1e-963e-7cb76eb99816
+		summarizeBy: none
+		sourceColumn: dep_del15
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_delay_min
+		dataType: double
+		lineageTag: ad47a061-b8e8-5781-a9f7-7458cdacab2a
+		summarizeBy: sum
+		sourceColumn: arr_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column dep_delay_min
+		dataType: double
+		lineageTag: ac47914c-82e9-539e-8920-2c5b34ec9e12
+		summarizeBy: sum
+		sourceColumn: dep_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column taxi_out_min
+		dataType: double
+		lineageTag: bc4d4710-48d0-592f-9b93-178a7c053434
+		summarizeBy: sum
+		sourceColumn: taxi_out_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancellation_reason
+		dataType: string
+		lineageTag: 83405f46-ebd2-52fc-8dcd-5c8bc07ed139
+		summarizeBy: none
+		sourceColumn: cancellation_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_delay_min
+		dataType: double
+		lineageTag: 60e525bf-2b6f-5e7e-8261-a27717ef5047
+		summarizeBy: sum
+		sourceColumn: carrier_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column weather_delay_min
+		dataType: double
+		lineageTag: 8dc667a1-864e-58b3-b85a-3c20a4ed5d3b
+		summarizeBy: sum
+		sourceColumn: weather_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column nas_delay_min
+		dataType: double
+		lineageTag: 67e9c9a1-3e94-539f-8425-2deb109f79a3
+		summarizeBy: sum
+		sourceColumn: nas_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column security_delay_min
+		dataType: double
+		lineageTag: 8753c609-07ab-5e3d-b51d-ccd6ce84a33a
+		summarizeBy: sum
+		sourceColumn: security_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column late_aircraft_delay_min
+		dataType: double
+		lineageTag: 0998c188-270a-5282-ba32-b3463bf9f74e
+		summarizeBy: sum
+		sourceColumn: late_aircraft_delay_min
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_flights = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document ( File.Contents ( DataFolder & "\fact_flights.parquet" ) ),
+				    Typed = Table.TransformColumnTypes ( Source, {{"flight_id", type text}, {"date_key", Int64.Type}, {"carrier_code", type text}, {"origin_airport", type text}, {"dest_airport", type text}, {"route", type text}, {"flight_number", type text}, {"dep_hour", Int64.Type}, {"crs_dep_hhmm", Int64.Type}, {"distance_mi", type number}, {"crs_elapsed_min", type number}, {"completed", Int64.Type}, {"cancelled", Int64.Type}, {"diverted", Int64.Type}, {"arr_del15", Int64.Type}, {"dep_del15", Int64.Type}, {"arr_delay_min", type number}, {"dep_delay_min", type number}, {"taxi_out_min", type number}, {"cancellation_reason", type text}, {"carrier_delay_min", type number}, {"weather_delay_min", type number}, {"nas_delay_min", type number}, {"security_delay_min", type number}, {"late_aircraft_delay_min", type number}} )
+				in
+				    Typed

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "FlightDisruption"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "390ffe31-f842-53bb-957d-c41d0d7fe20d"
+  }
+}

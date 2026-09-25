@@ -1,0 +1,86 @@
+/// Predicted vs observed delay / cancel rates by carrier-month (test)
+table score_carrier_month
+	lineageTag: 7d5aee48-1466-56fc-94bd-de8ba9446c2f
+
+	column year_month
+		dataType: string
+		lineageTag: c54fc76a-867e-530e-b11d-34080b64fe12
+		summarizeBy: none
+		sourceColumn: year_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_code
+		dataType: string
+		lineageTag: dc6025c0-08ca-546f-83fc-1a2d84e64f54
+		summarizeBy: none
+		sourceColumn: carrier_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column completed_flights
+		dataType: int64
+		formatString: 0
+		lineageTag: f2d03436-ecee-58e4-899c-08fccf44e23c
+		summarizeBy: none
+		sourceColumn: completed_flights
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_delay_prob
+		dataType: double
+		lineageTag: c0ca3b3f-3acc-5c44-9db4-4bace52acf1b
+		summarizeBy: sum
+		sourceColumn: mean_delay_prob
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_delay_rate
+		dataType: double
+		lineageTag: 202d05ae-cff5-5125-9769-278b46df86e9
+		summarizeBy: sum
+		sourceColumn: observed_delay_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_p50_min
+		dataType: double
+		lineageTag: ecf0dfda-50c5-5a23-a75a-61ec7da75f3c
+		summarizeBy: sum
+		sourceColumn: mean_p50_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_p90_min
+		dataType: double
+		lineageTag: 63cc55e6-6dd9-5020-9270-fdeccd23e7cb
+		summarizeBy: sum
+		sourceColumn: mean_p90_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_cancel_prob
+		dataType: double
+		lineageTag: 30f28220-445b-582b-95d8-38c5696223ed
+		summarizeBy: sum
+		sourceColumn: mean_cancel_prob
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_cancel_rate
+		dataType: double
+		lineageTag: c9138e85-dcd9-560a-bc37-d14e0a2f018b
+		summarizeBy: sum
+		sourceColumn: observed_cancel_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition score_carrier_month = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\score_carrier_month.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"year_month", type text}, {"carrier_code", type text}, {"completed_flights", Int64.Type}, {"mean_delay_prob", type number}, {"observed_delay_rate", type number}, {"mean_p50_min", type number}, {"mean_p90_min", type number}, {"mean_cancel_prob", type number}, {"observed_cancel_rate", type number}} )
+				in
+				    Typed

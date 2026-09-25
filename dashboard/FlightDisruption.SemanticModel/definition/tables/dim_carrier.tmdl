@@ -1,0 +1,38 @@
+/// Reporting carriers (BTS L_UNIQUE_CARRIERS names)
+table dim_carrier
+	lineageTag: 6ff40275-5040-5adb-a26b-9c9a95ca4921
+
+	column carrier_code
+		dataType: string
+		lineageTag: 4da07663-630e-5f8c-a42b-9963ca0bb4ed
+		summarizeBy: none
+		sourceColumn: carrier_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column carrier_name
+		dataType: string
+		lineageTag: d0ab77a8-ffad-51f9-b4b3-94877824efaf
+		summarizeBy: none
+		sourceColumn: carrier_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column flights_in_window
+		dataType: int64
+		formatString: 0
+		lineageTag: 12711769-de80-5e1e-b451-5e99a53a2bb4
+		summarizeBy: none
+		sourceColumn: flights_in_window
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_carrier = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\dim_carrier.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"carrier_code", type text}, {"carrier_name", type text}, {"flights_in_window", Int64.Type}} )
+				in
+				    Typed

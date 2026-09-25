@@ -1,0 +1,45 @@
+/// 7-day forward forecast for the 10 busiest airports
+table forecast_next7
+	lineageTag: 33c0896c-7386-54b6-ac0d-2e20d6452680
+
+	column flight_date
+		dataType: dateTime
+		lineageTag: f578ffa0-119b-5895-bf39-70a7e63954de
+		summarizeBy: none
+		sourceColumn: flight_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column airport_code
+		dataType: string
+		lineageTag: d3b8f373-eeb5-556c-a602-be4b23eb328f
+		summarizeBy: none
+		sourceColumn: airport_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast
+		dataType: double
+		lineageTag: 0edc11a0-2649-5dd5-93bd-e2d6ae1b51f1
+		summarizeBy: sum
+		sourceColumn: forecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column target
+		dataType: string
+		lineageTag: 97342a4c-9101-5a96-a21f-09ef6927b6fb
+		summarizeBy: none
+		sourceColumn: target
+
+		annotation SummarizationSetBy = Automatic
+
+	partition forecast_next7 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\forecast_next7.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"flight_date", type date}, {"airport_code", type text}, {"forecast", type number}, {"target", type text}} )
+				in
+				    Typed

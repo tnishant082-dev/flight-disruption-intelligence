@@ -1,0 +1,23 @@
+{
+  "name": "Fluent Light - FlightOps",
+  "dataColors": ["#118DFF", "#12239E", "#E66C37", "#6B007B", "#E044A7", "#744EC2", "#D9B300", "#D64550", "#197278", "#1AAB40"],
+  "background": "#FFFFFF",
+  "foreground": "#252423",
+  "tableAccent": "#118DFF",
+  "good": "#1AAB40",
+  "neutral": "#D9B300",
+  "bad": "#D64554",
+  "textClasses": {
+    "title": {"fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#252423"},
+    "label": {"fontFace": "Segoe UI", "fontSize": 10, "color": "#605E5C"},
+    "callout": {"fontFace": "Segoe UI Semibold", "fontSize": 26, "color": "#252423"}
+  },
+  "visualStyles": {
+    "page": {"*": {"background": [{"color": {"solid": {"color": "#F3F2F1"}}, "transparency": 0}]}},
+    "*": {"*": {
+      "border": [{"show": true, "color": {"solid": {"color": "#E1DFDD"}}, "radius": 4}],
+      "dropShadow": [{"show": true, "preset": "BottomRight"}],
+      "background": [{"show": true, "color": {"solid": {"color": "#FFFFFF"}}}]
+    }}
+  }
+}

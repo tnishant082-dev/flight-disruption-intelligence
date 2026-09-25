@@ -1,0 +1,77 @@
+/// Rolling-origin backtest predictions vs actuals
+table forecast_backtest
+	lineageTag: b7295a5b-b3c3-5152-acb9-a7fab1fee3e4
+
+	column origin
+		dataType: dateTime
+		lineageTag: 129dffa4-08f1-536c-89b4-e59becc044b1
+		summarizeBy: none
+		sourceColumn: origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column flight_date
+		dataType: dateTime
+		lineageTag: 920b8804-ffac-5dd2-92b3-8c5739c60647
+		summarizeBy: none
+		sourceColumn: flight_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column airport_code
+		dataType: string
+		lineageTag: 7b7f765c-adbd-5ea8-8ccb-db5fcc7f98fc
+		summarizeBy: none
+		sourceColumn: airport_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column y
+		dataType: double
+		lineageTag: bd37a158-43c2-5003-9c7d-e2b8c002c773
+		summarizeBy: sum
+		sourceColumn: y
+
+		annotation SummarizationSetBy = Automatic
+
+	column lightgbm
+		dataType: double
+		lineageTag: 768f00ac-e14e-5a30-a058-8b8acff43f82
+		summarizeBy: sum
+		sourceColumn: lightgbm
+
+		annotation SummarizationSetBy = Automatic
+
+	column seasonal_naive
+		dataType: double
+		lineageTag: 4b9312c8-7e48-53e2-b198-75159537885d
+		summarizeBy: sum
+		sourceColumn: seasonal_naive
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_4wk_same_weekday
+		dataType: double
+		lineageTag: 4f3891e3-be06-5302-b3b5-ce4332f7ceb0
+		summarizeBy: sum
+		sourceColumn: mean_4wk_same_weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column target
+		dataType: string
+		lineageTag: 15e3d81c-4c48-5d42-be0f-defc67859374
+		summarizeBy: none
+		sourceColumn: target
+
+		annotation SummarizationSetBy = Automatic
+
+	partition forecast_backtest = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\forecast_backtest.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"origin", type date}, {"flight_date", type date}, {"airport_code", type text}, {"y", type number}, {"lightgbm", type number}, {"seasonal_naive", type number}, {"mean_4wk_same_weekday", type number}, {"target", type text}} )
+				in
+				    Typed

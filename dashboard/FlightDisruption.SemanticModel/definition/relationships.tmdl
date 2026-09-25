@@ -1,0 +1,44 @@
+relationship 6bd2de84-fddf-5e90-a87f-3c007d48d6fb
+	fromColumn: fact_flights.date_key
+	toColumn: dim_date.date_key
+
+relationship d856271d-54db-577d-827b-02194021b770
+	fromColumn: fact_flights.carrier_code
+	toColumn: dim_carrier.carrier_code
+
+relationship 38bc7bf7-7882-508c-95e7-f9ff93b54e2f
+	fromColumn: fact_flights.origin_airport
+	toColumn: dim_airport.airport_code
+
+relationship fea8b608-f8da-58fe-a54a-be60d686d00d
+	isActive: false
+	fromColumn: fact_flights.dest_airport
+	toColumn: dim_airport.airport_code
+
+relationship c841382f-659a-56f2-9160-5b59c2b98db5
+	fromColumn: fact_flights.route
+	toColumn: dim_route.route
+
+relationship 7bef38e9-2830-57d9-8c90-14777f8bb101
+	fromColumn: fact_flight_scores.date_key
+	toColumn: dim_date.date_key
+
+relationship acfe3513-03c5-556e-b845-f8d5126ffcf5
+	fromColumn: fact_flight_scores.carrier_code
+	toColumn: dim_carrier.carrier_code
+
+relationship d59b5e34-859d-5a96-bac5-51ce34d6b30a
+	fromColumn: fact_flight_scores.origin_airport
+	toColumn: dim_airport.airport_code
+
+relationship 48cbcad7-2d77-571c-85e4-28d17d57a88e
+	fromColumn: fact_flight_scores.route
+	toColumn: dim_route.route
+
+relationship 4743b1b0-f10a-50c2-9eb8-0a5ce0632f5b
+	fromColumn: score_carrier_month.carrier_code
+	toColumn: dim_carrier.carrier_code
+
+relationship a87a82a9-7b51-540b-aa9d-726b2c838813
+	fromColumn: score_route_risk.route
+	toColumn: dim_route.route

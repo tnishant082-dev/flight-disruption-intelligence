@@ -1,0 +1,62 @@
+/// Origin-destination routes with route segment
+table dim_route
+	lineageTag: c0f61ac7-13fe-5e77-8aa3-8e58ccc7a44e
+
+	column route
+		dataType: string
+		lineageTag: 6cac563f-7870-5531-a026-7d41d888b40f
+		summarizeBy: none
+		sourceColumn: route
+
+		annotation SummarizationSetBy = Automatic
+
+	column origin
+		dataType: string
+		lineageTag: 270a272d-3135-53ef-9039-a7fb378a0e9d
+		summarizeBy: none
+		sourceColumn: origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column dest
+		dataType: string
+		lineageTag: 02fac166-280f-5033-8797-4e84f07915c1
+		summarizeBy: none
+		sourceColumn: dest
+
+		annotation SummarizationSetBy = Automatic
+
+	column distance_mi
+		dataType: double
+		lineageTag: 4e5cc775-fd59-55f9-b05a-a19548ab0de2
+		summarizeBy: sum
+		sourceColumn: distance_mi
+
+		annotation SummarizationSetBy = Automatic
+
+	column scheduled_flights
+		dataType: int64
+		formatString: 0
+		lineageTag: b9e75a00-47df-50f4-9a20-fe0d396e82af
+		summarizeBy: none
+		sourceColumn: scheduled_flights
+
+		annotation SummarizationSetBy = Automatic
+
+	column route_segment
+		dataType: string
+		lineageTag: 91ef180e-d595-514c-b670-f403df672723
+		summarizeBy: none
+		sourceColumn: route_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_route = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\dim_route.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"route", type text}, {"origin", type text}, {"dest", type text}, {"distance_mi", type number}, {"scheduled_flights", Int64.Type}, {"route_segment", type text}} )
+				in
+				    Typed
