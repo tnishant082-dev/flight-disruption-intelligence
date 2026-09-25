@@ -86,6 +86,8 @@ Full details are in [`reports/model_cards/`](./reports/model_cards) and [`report
 
 A six-page Power BI dashboard in a Fluent light theme, built on the star-schema exports in `data/powerbi/`. The Power BI files are in [`dashboard/`](./dashboard): open `dashboard/FlightDisruption.pbip` in Power BI Desktop and set the `DataFolder` parameter to your local `data/powerbi` folder. Every DAX measure is documented in [`dashboard/DAX_MEASURES.md`](./dashboard/DAX_MEASURES.md).
 
+**Dashboard walkthrough (56 s):** [`artifacts/powerbi-dashboard-walkthrough.mp4`](./artifacts/powerbi-dashboard-walkthrough.mp4): a tour of the six dashboard pages, clicking through each page tab and zooming in on the KPI cards, slicers and key charts.
+
 ### Dashboard Pages
 
 | | |
