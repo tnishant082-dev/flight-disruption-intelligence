@@ -1,0 +1,46 @@
+{
+  "n_explained": 3000,
+  "top_features": [
+    {
+      "feature": "crs_dep_min_of_day",
+      "mean_abs_shap": 0.1415547573905183
+    },
+    {
+      "feature": "te_flight_delay",
+      "mean_abs_shap": 0.10867030588641412
+    },
+    {
+      "feature": "arr_hour",
+      "mean_abs_shap": 0.10690523810195214
+    },
+    {
+      "feature": "te_route_delay",
+      "mean_abs_shap": 0.07195728211739859
+    },
+    {
+      "feature": "te_carrier_origin_delay",
+      "mean_abs_shap": 0.06704332422671683
+    },
+    {
+      "feature": "carrier_sched_day",
+      "mean_abs_shap": 0.05217034444386559
+    },
+    {
+      "feature": "day_of_week",
+      "mean_abs_shap": 0.05134042022971924
+    },
+    {
+      "feature": "dest",
+      "mean_abs_shap": 0.04677955210500565
+    },
+    {
+      "feature": "dep_hour",
+      "mean_abs_shap": 0.03724349649838775
+    },
+    {
+      "feature": "days_to_holiday",
+      "mean_abs_shap": 0.03636771210260306
+    }
+  ],
+  "max_abs_diff_vs_native_pred_contrib": 0.0
+}

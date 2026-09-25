@@ -1,0 +1,111 @@
+{
+  "model": "delay_regression",
+  "version": "v1",
+  "trained_at_utc": "2026-09-25 10:49:04",
+  "code_version": "uncommitted",
+  "train_window": "2025-08-01..2026-03-31",
+  "valid_window": "2026-04-01..2026-05-31",
+  "test_window": "2026-06-01..2026-07-31",
+  "task": "quantile regression of arrival delay minutes (completed flights)",
+  "features": [
+    "carrier",
+    "origin",
+    "dest",
+    "dep_hour",
+    "arr_hour",
+    "crs_dep_min_of_day",
+    "day_of_week",
+    "is_weekend",
+    "days_to_holiday",
+    "distance_mi",
+    "crs_elapsed_min",
+    "sched_speed_mpm",
+    "origin_sched_deps_day",
+    "origin_sched_deps_hour",
+    "dest_sched_arrs_hour",
+    "carrier_sched_day",
+    "te_route_delay",
+    "te_route_cancel",
+    "te_carrier_origin_delay",
+    "te_carrier_origin_cancel",
+    "te_flight_delay",
+    "te_flight_cancel"
+  ],
+  "train_rows": 400000,
+  "valid_rows": 150000,
+  "test_rows": 1207232,
+  "sampling": "uniform sample of 400,000 train / 150,000 valid completed flights; test = every completed flight in Jun-Jul 2026",
+  "params": {
+    "objective": "quantile",
+    "learning_rate": 0.1,
+    "num_leaves": 127,
+    "min_child_samples": 100,
+    "feature_fraction": 0.8,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "max_cat_to_onehot": 8,
+    "verbosity": -1,
+    "num_threads": 8,
+    "seed": 42
+  },
+  "quantiles": [
+    0.1,
+    0.5,
+    0.9
+  ],
+  "test_metrics": {
+    "baseline_global_median": {
+      "mae": 29.808709510682288,
+      "rmse": 71.1277248788039,
+      "median_ae": 13.0,
+      "n": 1207232
+    },
+    "baseline_route_median": {
+      "mae": 29.689468967025395,
+      "rmse": 71.08326480012396,
+      "median_ae": 13.0,
+      "n": 1207232
+    },
+    "baseline_global_mean": {
+      "mae": 31.78577665498429,
+      "rmse": 68.63845966007032,
+      "median_ae": 20.4266625,
+      "n": 1207232
+    },
+    "lgbm_q10_pinball": {
+      "pinball_loss": 4.0546230576766416,
+      "best_iteration": 36
+    },
+    "lgbm_q50_pinball": {
+      "pinball_loss": 14.421513680455675,
+      "best_iteration": 30
+    },
+    "lgbm_q90_pinball": {
+      "pinball_loss": 13.226876484087017,
+      "best_iteration": 27
+    },
+    "lgbm_p50": {
+      "mae": 28.84302736091135,
+      "rmse": 70.12944151945405,
+      "median_ae": 12.53232071900145,
+      "n": 1207232
+    },
+    "baseline_q10_pinball": {
+      "pinball_loss": 4.252018336160738
+    },
+    "baseline_q50_pinball": {
+      "pinball_loss": 14.904354755341144
+    },
+    "baseline_q90_pinball": {
+      "pinball_loss": 14.14873479165562
+    },
+    "interval": {
+      "p90_coverage": 0.8673668358691619,
+      "p10_p90_coverage": 0.7714606637332344,
+      "mean_p10_p90_width_min": 66.71736739136273,
+      "quantile_crossing_share": 0.0
+    }
+  },
+  "baseline_global_median_value": -6.0,
+  "runtime_seconds": 14.5
+}

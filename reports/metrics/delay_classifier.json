@@ -1,0 +1,196 @@
+{
+  "model": "delay_classifier",
+  "version": "v1",
+  "trained_at_utc": "2026-09-25 10:48:48",
+  "code_version": "uncommitted",
+  "train_window": "2025-08-01..2026-03-31",
+  "valid_window": "2026-04-01..2026-05-31",
+  "test_window": "2026-06-01..2026-07-31",
+  "task": "binary classification: arrival delay >= 15 min (completed flights)",
+  "features": [
+    "carrier",
+    "origin",
+    "dest",
+    "dep_hour",
+    "arr_hour",
+    "crs_dep_min_of_day",
+    "day_of_week",
+    "is_weekend",
+    "days_to_holiday",
+    "distance_mi",
+    "crs_elapsed_min",
+    "sched_speed_mpm",
+    "origin_sched_deps_day",
+    "origin_sched_deps_hour",
+    "dest_sched_arrs_hour",
+    "carrier_sched_day",
+    "te_route_delay",
+    "te_route_cancel",
+    "te_carrier_origin_delay",
+    "te_carrier_origin_cancel",
+    "te_flight_delay",
+    "te_flight_cancel"
+  ],
+  "categorical_features": [
+    "carrier",
+    "origin",
+    "dest"
+  ],
+  "train_rows": 500000,
+  "valid_rows": 200000,
+  "test_rows": 1207232,
+  "sampling": "uniform reservoir sample of 500,000 train / 200,000 valid completed flights; test = every completed flight in Jun-Jul 2026",
+  "lightgbm_params": {
+    "objective": "binary",
+    "metric": "auc",
+    "verbosity": -1,
+    "seed": 42,
+    "learning_rate": 0.08,
+    "num_threads": 8,
+    "bagging_freq": 1,
+    "max_cat_to_onehot": 8,
+    "num_leaves": 179,
+    "min_child_samples": 37,
+    "feature_fraction": 0.5909124836035503,
+    "bagging_fraction": 0.6733618039413735,
+    "lambda_l2": 0.023021277110080198,
+    "cat_smooth": 24.082072654535423
+  },
+  "num_boost_round": 20,
+  "optuna_trials": 15,
+  "decision_threshold": 0.21033210332103322,
+  "selected_model": "lightgbm_calibrated",
+  "test_metrics": {
+    "prior_rate": {
+      "roc_auc": 0.5,
+      "pr_auc": 0.27045091581402747,
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "brier": 0.20036762167588398,
+      "log_loss": 0.5922752019969084,
+      "threshold": 0.5,
+      "positive_rate": 0.27045091581402747,
+      "n": 1207232
+    },
+    "logistic_regression": {
+      "roc_auc": 0.6802741702096354,
+      "pr_auc": 0.41242459451575353,
+      "f1": 0.4878097605863455,
+      "precision": 0.37604538636152446,
+      "recall": 0.6941043868703235,
+      "brier": 0.18405541242536935,
+      "log_loss": 0.547969387820561,
+      "threshold": 0.22601531595566157,
+      "positive_rate": 0.27045091581402747,
+      "n": 1207232
+    },
+    "xgboost": {
+      "roc_auc": 0.6806077018283005,
+      "pr_auc": 0.4150737139900337,
+      "f1": 0.48730268419039674,
+      "precision": 0.37760901230098254,
+      "recall": 0.686821012137937,
+      "brier": 0.18672429025173187,
+      "log_loss": 0.5548455119132996,
+      "threshold": 0.20741866528987885,
+      "positive_rate": 0.27045091581402747,
+      "n": 1207232,
+      "best_iteration": 16
+    },
+    "lightgbm_uncalibrated": {
+      "roc_auc": 0.6876700574135498,
+      "pr_auc": 0.42227061349884787,
+      "f1": 0.49135847852389936,
+      "precision": 0.3888343571420923,
+      "recall": 0.6673078159983094,
+      "brier": 0.18596710037352007,
+      "log_loss": 0.5527214958006277,
+      "threshold": 0.21378998808928806,
+      "positive_rate": 0.27045091581402747,
+      "n": 1207232
+    },
+    "lightgbm_calibrated": {
+      "roc_auc": 0.6874980797609912,
+      "pr_auc": 0.41889349577989454,
+      "f1": 0.49135847852389936,
+      "precision": 0.3888343571420923,
+      "recall": 0.6673078159983094,
+      "brier": 0.18568107170344944,
+      "log_loss": 0.5527839114432135,
+      "threshold": 0.21033210332103322,
+      "positive_rate": 0.27045091581402747,
+      "n": 1207232,
+      "valid_roc_auc": 0.6719623500456645
+    },
+    "dayofops_lightgbm_with_rotation": {
+      "roc_auc": 0.7104674633492207,
+      "pr_auc": 0.4901650333092549,
+      "f1": 0.5049706353254136,
+      "precision": 0.4114538940077059,
+      "recall": 0.6535006447226162,
+      "brier": 0.17975626336600037,
+      "log_loss": 0.538428192678759,
+      "threshold": 0.21761979396252717,
+      "positive_rate": 0.27045091581402747,
+      "n": 1207232
+    }
+  },
+  "test_by_month": [
+    {
+      "month": "2026-06",
+      "observed_rate": 0.2571195274145909,
+      "mean_predicted": 0.20485102649006928,
+      "n": 595194.0
+    },
+    {
+      "month": "2026-07",
+      "observed_rate": 0.2834154088471631,
+      "mean_predicted": 0.21110096808870504,
+      "n": 612038.0
+    }
+  ],
+  "top_features": [
+    {
+      "feature": "crs_dep_min_of_day",
+      "gain_share": 0.15340632739742974
+    },
+    {
+      "feature": "te_flight_delay",
+      "gain_share": 0.13244824041661393
+    },
+    {
+      "feature": "arr_hour",
+      "gain_share": 0.09216672914833868
+    },
+    {
+      "feature": "dest",
+      "gain_share": 0.08532964470265357
+    },
+    {
+      "feature": "origin",
+      "gain_share": 0.08492011866981437
+    },
+    {
+      "feature": "te_route_delay",
+      "gain_share": 0.08358183007631291
+    },
+    {
+      "feature": "carrier_sched_day",
+      "gain_share": 0.07887996470091006
+    },
+    {
+      "feature": "days_to_holiday",
+      "gain_share": 0.06061013530865192
+    },
+    {
+      "feature": "te_carrier_origin_delay",
+      "gain_share": 0.05914573642500522
+    },
+    {
+      "feature": "day_of_week",
+      "gain_share": 0.04427145851753369
+    }
+  ],
+  "runtime_seconds": 55.0
+}
