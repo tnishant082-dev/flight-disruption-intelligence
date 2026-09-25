@@ -43,6 +43,43 @@ def best_f1_threshold(y: np.ndarray, p: np.ndarray) -> float:
     return float(thr[i])
 
 
+class PlattCalibrator:
+    """Sigmoid (Platt) calibration on the logit of a raw score.
+
+    Monotone, so it keeps the ranking (ROC-AUC / PR-AUC) of the raw model unchanged while
+    mapping class-weighted scores back to the real probability scale. Same `.predict` interface
+    as sklearn's IsotonicRegression so serving code can use either.
+    """
+
+    def __init__(self) -> None:
+        self.a, self.b = 1.0, 0.0
+
+    @staticmethod
+    def _logit(p) -> np.ndarray:
+        p = np.clip(np.asarray(p, dtype="float64"), 1e-7, 1 - 1e-7)
+        return np.log(p / (1 - p))
+
+    def fit(self, raw, y) -> PlattCalibrator:
+        from sklearn.linear_model import LogisticRegression
+
+        m = LogisticRegression(C=1e6, max_iter=1000).fit(self._logit(raw).reshape(-1, 1), y)
+        self.a, self.b = float(m.coef_[0, 0]), float(m.intercept_[0])
+        return self
+
+    def predict(self, raw) -> np.ndarray:
+        return 1.0 / (1.0 + np.exp(-(self.a * self._logit(raw) + self.b)))
+
+
+def top_slice_precision(y: np.ndarray, p: np.ndarray, fracs=(0.01, 0.05)) -> dict[str, dict]:
+    order = np.argsort(-p, kind="stable")
+    out = {}
+    for frac in fracs:
+        k = int(len(order) * frac)
+        prec = float(y[order[:k]].mean())
+        out[f"top_{int(frac * 100)}pct"] = {"precision": prec, "lift_vs_prior": prec / float(y.mean())}
+    return out
+
+
 def regression_metrics(y: np.ndarray, pred: np.ndarray) -> dict[str, float]:
     return {"mae": float(skm.mean_absolute_error(y, pred)),
             "rmse": float(np.sqrt(skm.mean_squared_error(y, pred))),
